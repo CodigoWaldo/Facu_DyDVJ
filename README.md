@@ -7,7 +7,7 @@ This is a prototype of the videogame to develop for the desing and developing vi
 </br></br>
 
 Integrantes:
-- [Franco hengerber](https://github.com/francoherg)
+- [Franco Hergenreder](https://github.com/francoherg)
 - [Walter Lopez](https://github.com/wglopez)
 - Yo
 
