@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://b008bo5e827wt"]
+
+[ext_resource type="Script" path="res://player_controller.gd" id="1_koipq"]
+[ext_resource type="Texture2D" uid="uid://byk5uob18lv36" path="res://assets/graphics/player.png" id="2_iih6w"]
+[ext_resource type="PackedScene" uid="uid://bh2oyn25jyfef" path="res://block.tscn" id="3_g5neh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ljr"]
+
+[node name="Nivel" type="Node2D"]
+position = Vector2(276, 130)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_koipq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+texture_filter = 2
+shape = SubResource("RectangleShape2D_l7ljr")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(-0.5, -2.38419e-07)
+scale = Vector2(0.395833, 0.416667)
+texture = ExtResource("2_iih6w")
+
+[node name="Block" parent="." instance=ExtResource("3_g5neh")]
+position = Vector2(313, 444)
+scale = Vector2(14.885, 1)
+
+[node name="Block8" parent="." instance=ExtResource("3_g5neh")]
+position = Vector2(885, 108)
+rotation = 1.5708
+scale = Vector2(14.885, 1)
+
+[node name="Block9" parent="." instance=ExtResource("3_g5neh")]
+position = Vector2(-287, 94)
+rotation = 1.5708
+scale = Vector2(14.885, 1)
+
+[node name="Block2" parent="." instance=ExtResource("3_g5neh")]
+position = Vector2(504, 276)
+
+[node name="Block3" parent="." instance=ExtResource("3_g5neh")]
+position = Vector2(49, 236)
+
+[node name="Block4" parent="." instance=ExtResource("3_g5neh")]
+position = Vector2(278, 182)
+
+[node name="Block5" parent="." instance=ExtResource("3_g5neh")]
+position = Vector2(287, 336)
+
+[node name="Block7" parent="." instance=ExtResource("3_g5neh")]
+position = Vector2(160, 267)
+
+[node name="Block6" parent="." instance=ExtResource("3_g5neh")]
+position = Vector2(410, 390)
