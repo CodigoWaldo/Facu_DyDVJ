@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b008bo5e827wt"]
+[gd_scene load_steps=11 format=3 uid="uid://b008bo5e827wt"]
 
 [ext_resource type="Script" path="res://player_controller.gd" id="1_koipq"]
 [ext_resource type="Texture2D" uid="uid://dlletwtc0lti7" path="res://assets/Rocky Roads/Backgrounds/mountains_a.png" id="1_kwy5e"]
 [ext_resource type="Texture2D" uid="uid://byk5uob18lv36" path="res://assets/graphics/player.png" id="2_iih6w"]
-[ext_resource type="PackedScene" uid="uid://bh2oyn25jyfef" path="res://block.tscn" id="3_g5neh"]
 [ext_resource type="Texture2D" uid="uid://e0d75h7jlowq" path="res://assets/Rocky Roads/Deco/lava.png" id="4_tx4pw"]
 [ext_resource type="Texture2D" uid="uid://bh028f4t4ypip" path="res://assets/Rocky Roads/Tilesets/tileset_lava.png" id="5_q7w4l"]
+[ext_resource type="Script" path="res://assets/Scripts/deathzone.gd" id="6_a0jou"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq3kw"]
 texture = ExtResource("5_q7w4l")
@@ -173,8 +173,11 @@ sources/0 = SubResource("TileSetAtlasSource_kq3kw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ljr"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv16y"]
+size = Vector2(385.748, 35.2628)
+
 [node name="Nivel" type="Node2D"]
-position = Vector2(276, 130)
+position = Vector2(-285, -512)
 
 [node name="MountainsA" type="Sprite2D" parent="."]
 position = Vector2(306, 435)
@@ -186,53 +189,35 @@ tile_set = SubResource("TileSet_4es6s")
 format = 2
 layer_0/tile_data = PackedInt32Array(1048591, 196608, 1, 1048592, 196608, 1, 1048593, 196608, 1, 1048594, 196608, 1, 1048595, 196608, 1, 1048596, 196608, 1, 1114133, 196608, 1, 1114134, 196608, 1, 1114135, 196608, 1, 1114136, 196608, 1, 524286, 131072, 1, 524287, 196608, 1, 458752, 262144, 1, 589822, 131072, 1, 589823, 196608, 1, 524288, 262144, 1, 458753, 131072, 1, 458754, 196608, 1, 458755, 262144, 1, 524289, 131072, 1, 524290, 196608, 1, 524291, 262144, 1, 458762, 131072, 1, 458763, 196608, 1, 458764, 262144, 1, 393236, 131072, 1, 393237, 196608, 1, 393238, 262144, 1, 458779, 131072, 1, 458780, 196608, 1, 458781, 262144, 1, 1048574, 131072, 1, 1048575, 196608, 1, 983040, 262144, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="."]
 safe_margin = 0.001
 script = ExtResource("1_koipq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 texture_filter = 2
 shape = SubResource("RectangleShape2D_l7ljr")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="player"]
 texture_filter = 1
 position = Vector2(-0.5, -2.38419e-07)
 scale = Vector2(0.395833, 0.416667)
 texture = ExtResource("2_iih6w")
 
-[node name="Block" parent="." instance=ExtResource("3_g5neh")]
-position = Vector2(313, 444)
-scale = Vector2(14.885, 1)
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(2, 2)
 
-[node name="Block8" parent="." instance=ExtResource("3_g5neh")]
-position = Vector2(885, 108)
-rotation = 1.5708
-scale = Vector2(14.885, 1)
+[node name="deadzone" type="Area2D" parent="."]
+script = ExtResource("6_a0jou")
 
-[node name="Block9" parent="." instance=ExtResource("3_g5neh")]
-position = Vector2(-287, 94)
-rotation = 1.5708
-scale = Vector2(14.885, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deadzone"]
+position = Vector2(278, 601)
+scale = Vector2(4.11458, 6.97917)
+shape = SubResource("RectangleShape2D_gv16y")
 
-[node name="Block2" parent="." instance=ExtResource("3_g5neh")]
-position = Vector2(504, 276)
-
-[node name="Block3" parent="." instance=ExtResource("3_g5neh")]
-position = Vector2(0, 56)
-
-[node name="Block4" parent="." instance=ExtResource("3_g5neh")]
-position = Vector2(278, 182)
-
-[node name="Block5" parent="." instance=ExtResource("3_g5neh")]
-position = Vector2(287, 336)
-
-[node name="Block7" parent="." instance=ExtResource("3_g5neh")]
-position = Vector2(160, 267)
-
-[node name="Block6" parent="." instance=ExtResource("3_g5neh")]
-position = Vector2(410, 390)
-
-[node name="Lava" type="Sprite2D" parent="."]
-position = Vector2(300, 486)
-scale = Vector2(3, 1)
+[node name="Sprite2D" type="Sprite2D" parent="deadzone/CollisionShape2D"]
+position = Vector2(9.96456, -16.7566)
+scale = Vector2(0.951899, 0.412097)
 texture = ExtResource("4_tx4pw")
+
+[connection signal="body_entered" from="deadzone" to="player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="deadzone" to="deadzone" method="_on_body_entered"]
