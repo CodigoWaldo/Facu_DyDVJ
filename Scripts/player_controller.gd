@@ -8,8 +8,22 @@ const JUMP_VELOCITY = -400.0
 # var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity = 1100
 var has_double_jumped = false;
+
+
+
 func _physics_process(delta):
 	# Add the gravity.
+	
+	
+	$AnimationPlayer.play("idle") #animacion idle
+	
+	if Input.is_action_pressed("ui_right"):
+		$Sprite2D.flip_h=false
+
+	if Input.is_action_pressed("ui_left"):
+		$Sprite2D.flip_h=true
+	
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 

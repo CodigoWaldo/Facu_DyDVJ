@@ -1,3 +1,2 @@
-res://assets/scenes/nivel.tscn
-res://player_controller.gd
-res://assets/Scripts/deathzone.gd
+res://scenes/nivel.tscn
+res://Scripts/player_controller.gd
