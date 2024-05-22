@@ -15,6 +15,10 @@ run/main_scene="res://assets/scenes/nivel.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="DDVJ"
+
 [input]
 
 mover_derecha={
