@@ -1,2 +1,4 @@
 res://scenes/nivel.tscn
+res://scenes/block.tscn
 res://Scripts/player_controller.gd
+res://Scripts/deathzone.gd

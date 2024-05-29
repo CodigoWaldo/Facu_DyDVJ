@@ -6,7 +6,7 @@ extends Area2D
 var has_double_jumped = false;
 func _physics_process(delta):
 	# Add the gravity.
-	position.y -= 0.3 #velocidad de la lava.
+	position.y -= 0.0 #velocidad de la lava.
 
 func _on_body_entered(body):
 	if body.get_name()=="player":

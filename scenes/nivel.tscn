@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b008bo5e827wt"]
+[gd_scene load_steps=22 format=3 uid="uid://b008bo5e827wt"]
 
 [ext_resource type="Script" path="res://Scripts/player_controller.gd" id="1_koipq"]
 [ext_resource type="Texture2D" uid="uid://dlletwtc0lti7" path="res://assets/Rocky Roads/Backgrounds/mountains_a.png" id="1_kwy5e"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://e0d75h7jlowq" path="res://assets/Rocky Roads/Deco/lava.png" id="4_tx4pw"]
 [ext_resource type="Texture2D" uid="uid://bh028f4t4ypip" path="res://assets/Rocky Roads/Tilesets/tileset_lava.png" id="5_q7w4l"]
 [ext_resource type="Script" path="res://Scripts/deathzone.gd" id="6_a0jou"]
+[ext_resource type="Texture2D" uid="uid://blbthbuvxlvxn" path="res://assets/plataforma movil/cloud_platforms.png" id="7_m3g6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq3kw"]
 texture = ExtResource("5_q7w4l")
@@ -175,6 +176,21 @@ sources/0 = SubResource("TileSetAtlasSource_kq3kw")
 radius = 14.0
 height = 28.0
 
+[sub_resource type="Animation" id="Animation_6w5iw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_g1lbk"]
 resource_name = "idle"
 length = 4.4
@@ -191,21 +207,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
 
-[sub_resource type="Animation" id="Animation_6w5iw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ela54"]
 _data = {
 "RESET": SubResource("Animation_6w5iw"),
@@ -214,6 +215,77 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gv16y"]
 size = Vector2(387.548, 27.0843)
+
+[sub_resource type="Curve2D" id="Curve2D_xwrpn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 60, 85, 0, 0, 0, 0, 411, 86)
+}
+point_count = 2
+
+[sub_resource type="GDScript" id="GDScript_ib5dh"]
+script/source = "extends Path2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_m2ikd"]
+script/source = "extends PathFollow2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$\"mover nube\".play(\"mover nube\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4037"]
+size = Vector2(56.9998, 5.99428)
+
+[sub_resource type="Animation" id="Animation_7rkol"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3hwa2"]
+resource_name = "mover nube"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 351.001, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bua81"]
+_data = {
+"RESET": SubResource("Animation_7rkol"),
+"mover nube": SubResource("Animation_3hwa2")
+}
 
 [node name="Nivel" type="Node2D"]
 position = Vector2(-285, -512)
@@ -224,12 +296,13 @@ scale = Vector2(4.63672, 1)
 texture = ExtResource("1_kwy5e")
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-1, 0)
 tile_set = SubResource("TileSet_4es6s")
 format = 2
-layer_0/tile_data = PackedInt32Array(1310734, 458752, 3, 1310735, 524288, 3, 1310736, 589824, 3, 1310737, 655360, 3, 1310738, 720896, 3, 1310739, 786432, 3, 1310740, 851968, 3, 1245192, 720896, 1, 1245193, 786432, 1, 1245194, 851968, 1, 1179653, 720896, 1, 1179654, 786432, 1, 1179655, 851968, 1, 917515, 720896, 1, 917516, 786432, 1, 917517, 851968, 1, 786448, 720896, 1, 786449, 786432, 1, 786450, 851968, 1, 1245202, 327680, 4)
+layer_0/tile_data = PackedInt32Array(1310734, 458752, 3, 1310735, 524288, 3, 1310736, 589824, 3, 1310737, 655360, 3, 1310738, 720896, 3, 1310739, 786432, 3, 1310740, 851968, 3, 1245192, 720896, 1, 1245193, 786432, 1, 1245194, 851968, 1, 1179653, 851968, 1, 1179654, 786432, 1, 1179655, 851968, 1, 1179651, 851968, 1, 1179652, 786432, 1, 1179648, 851968, 1, 1179649, 720896, 1, 1179650, 786432, 1, 1245182, 720896, 1, 1245183, 786432, 1, 1310757, 786432, 1, 1310758, 786432, 1, 1310759, 786432, 1, 1310761, 786432, 1, 1310760, 786432, 1, 983056, 786432, 1, 983057, 786432, 1, 983058, 786432, 1, 786453, 786432, 1, 786454, 786432, 1, 786455, 786432, 1, 655373, 786432, 1, 655372, 786432, 1, 655371, 786432, 1, 655370, 786432, 1, 458793, 720896, 1, 458795, 720896, 1, 458796, 786432, 1, 458797, 851968, 1, 458794, 786432, 1)
 
 [node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(284.225, 303.227)
+position = Vector2(296, 66)
 safe_margin = 0.001
 script = ExtResource("1_koipq")
 
@@ -255,6 +328,7 @@ libraries = {
 speed_scale = 3.0
 
 [node name="deadzone" type="Area2D" parent="."]
+position = Vector2(63, -45)
 script = ExtResource("6_a0jou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="deadzone"]
@@ -263,9 +337,67 @@ scale = Vector2(4.11458, 6.97917)
 shape = SubResource("RectangleShape2D_gv16y")
 
 [node name="Sprite2D" type="Sprite2D" parent="deadzone/CollisionShape2D"]
-position = Vector2(-4.654, -4.72649)
+position = Vector2(1.14252, -5.9444)
 scale = Vector2(0.96348, 0.862687)
 texture = ExtResource("4_tx4pw")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(207, 26)
+curve = SubResource("Curve2D_xwrpn")
+script = SubResource("GDScript_ib5dh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(60, 85)
+rotation = 0.002849
+script = SubResource("GDScript_m2ikd")
+
+[node name="Area2D" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
+position = Vector2(0.999939, 0.0104065)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2(1.50006, -3.01608)
+shape = SubResource("RectangleShape2D_o4037")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Area2D"]
+texture = ExtResource("7_m3g6l")
+hframes = 2
+vframes = 4
+frame = 6
+
+[node name="mover nube" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
+libraries = {
+"": SubResource("AnimationLibrary_bua81")
+}
+speed_scale = 0.514
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(207, 26)
+curve = SubResource("Curve2D_xwrpn")
+script = SubResource("GDScript_ib5dh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(60, 85)
+rotation = 0.002849
+script = SubResource("GDScript_m2ikd")
+
+[node name="Area2D" type="CharacterBody2D" parent="Path2D2/PathFollow2D"]
+position = Vector2(0.999939, 0.0104065)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D2/PathFollow2D/Area2D"]
+position = Vector2(1.50006, -3.01608)
+shape = SubResource("RectangleShape2D_o4037")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D2/PathFollow2D/Area2D"]
+texture = ExtResource("7_m3g6l")
+hframes = 2
+vframes = 4
+frame = 6
+
+[node name="mover nube" type="AnimationPlayer" parent="Path2D2/PathFollow2D"]
+libraries = {
+"": SubResource("AnimationLibrary_bua81")
+}
+speed_scale = 0.514
 
 [connection signal="body_entered" from="deadzone" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="deadzone" to="deadzone" method="_on_body_entered"]
