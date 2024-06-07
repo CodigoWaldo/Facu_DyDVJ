@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://mvn6h8yuw640"]
+
+[ext_resource type="Script" path="res://Scripts/player_controller.gd" id="1_570gx"]
+[ext_resource type="Texture2D" uid="uid://n8h6a80nos3o" path="res://assets/Player/Idle.png" id="2_brfuj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r284p"]
+radius = 14.0
+height = 28.0
+
+[sub_resource type="Animation" id="Animation_6w5iw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_g1lbk"]
+resource_name = "idle"
+length = 4.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ela54"]
+_data = {
+"RESET": SubResource("Animation_6w5iw"),
+"idle": SubResource("Animation_g1lbk")
+}
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(284.225, 303.227)
+safe_margin = 0.001
+script = ExtResource("1_570gx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 2
+position = Vector2(-26.225, -1.22699)
+shape = SubResource("CapsuleShape2D_r284p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-26.225, -3.227)
+scale = Vector2(1.02038, 0.98781)
+texture = ExtResource("2_brfuj")
+hframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ela54")
+}
+speed_scale = 3.0

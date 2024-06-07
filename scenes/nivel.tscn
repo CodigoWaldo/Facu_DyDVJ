@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://b008bo5e827wt"]
+
+[ext_resource type="TileSet" uid="uid://mpqsashf54jn" path="res://assets/tileset.tres" id="1_demud"]
+[ext_resource type="Texture2D" uid="uid://dlletwtc0lti7" path="res://assets/Rocky Roads/Backgrounds/mountains_a.png" id="1_kwy5e"]
+[ext_resource type="PackedScene" uid="uid://mvn6h8yuw640" path="res://scenes/player.tscn" id="3_jof57"]
+[ext_resource type="Texture2D" uid="uid://e0d75h7jlowq" path="res://assets/Rocky Roads/Deco/lava.png" id="4_tx4pw"]
+[ext_resource type="Script" path="res://Scripts/deathzone.gd" id="6_a0jou"]
+[ext_resource type="Script" path="res://scenes/MinigameSpawer.gd" id="7_qvl3p"]
+[ext_resource type="PackedScene" uid="uid://cf8i05em72yc0" path="res://minigame1.tscn" id="7_xig21"]
+[ext_resource type="Texture2D" uid="uid://wmu43415s20l" path="res://60ecc7294c8000c63b963933a673cf92.png" id="8_372tj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv16y"]
+size = Vector2(387.548, 27.0843)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3dvw"]
+size = Vector2(22.68, 20)
+
+[node name="Nivel" type="Node2D"]
+position = Vector2(-285, -512)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_demud")
+format = 2
+layer_0/name = "fondo"
+layer_0/tile_data = PackedInt32Array(1376270, 720896, 1, 1376271, 786432, 1, 1376272, 851968, 1, 1114133, 720896, 1, 1114134, 786432, 1, 1114135, 851968, 1, 1114116, 720896, 1, 1114117, 786432, 1, 1114118, 851968, 1, 786440, 720896, 1, 786441, 786432, 1, 786442, 851968, 1, 786449, 720896, 1, 786450, 786432, 1, 786451, 851968, 1, 1048588, 720896, 1, 1048589, 786432, 1, 1048590, 851968, 1, 655384, 720896, 1, 655385, 786432, 1, 655386, 851968, 1, 524295, 720896, 1, 524296, 786432, 1, 524297, 851968, 1, 1048593, 393216, 1, 1048594, 458752, 1, 720909, 393216, 1, 720910, 458752, 1, 1114121, 589824, 1, 655364, 589824, 1, 589845, 589824, 1, 458768, 589824, 1)
+layer_1/name = "adelante"
+layer_1/tile_data = PackedInt32Array()
+
+[node name="MountainsA" type="Sprite2D" parent="."]
+position = Vector2(306, 435)
+scale = Vector2(4.63672, 1)
+texture = ExtResource("1_kwy5e")
+
+[node name="player" parent="." instance=ExtResource("3_jof57")]
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(2.3, 2.3)
+
+[node name="bloque_especial1" parent="player/Camera2D" instance=ExtResource("7_xig21")]
+visible = false
+y_sort_enabled = true
+position = Vector2(0.774994, -1.22699)
+
+[node name="deadzone" type="Area2D" parent="."]
+script = ExtResource("6_a0jou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deadzone"]
+position = Vector2(270.299, 582.487)
+scale = Vector2(4.11458, 6.97917)
+shape = SubResource("RectangleShape2D_gv16y")
+
+[node name="Sprite2D" type="Sprite2D" parent="deadzone/CollisionShape2D"]
+texture_filter = 2
+position = Vector2(-4.654, -4.72649)
+scale = Vector2(0.96348, 0.862687)
+texture = ExtResource("4_tx4pw")
+
+[node name="MinigameSpawer" type="Area2D" parent="."]
+position = Vector2(249, 206)
+script = ExtResource("7_qvl3p")
+minigame_scene = ExtResource("7_xig21")
+
+[node name="Enter" type="CollisionShape2D" parent="MinigameSpawer"]
+shape = SubResource("RectangleShape2D_w3dvw")
+
+[node name="Sprite2D" type="Sprite2D" parent="MinigameSpawer/Enter"]
+scale = Vector2(0.07, 0.05)
+texture = ExtResource("8_372tj")
+
+[connection signal="body_entered" from="deadzone" to="deadzone" method="_on_body_entered"]
+[connection signal="body_entered" from="MinigameSpawer" to="MinigameSpawer" method="_on_body_entered"]
