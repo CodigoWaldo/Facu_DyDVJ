@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b008bo5e827wt"]
+[gd_scene load_steps=22 format=3 uid="uid://b008bo5e827wt"]
 
 [ext_resource type="Script" path="res://Scripts/player_controller.gd" id="1_koipq"]
 [ext_resource type="Texture2D" uid="uid://dlletwtc0lti7" path="res://assets/Rocky Roads/Backgrounds/mountains_a.png" id="1_kwy5e"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bh028f4t4ypip" path="res://assets/Rocky Roads/Tilesets/tileset_lava.png" id="5_q7w4l"]
 [ext_resource type="Script" path="res://Scripts/deathzone.gd" id="6_a0jou"]
 [ext_resource type="Texture2D" uid="uid://blbthbuvxlvxn" path="res://assets/plataforma movil/cloud_platforms.png" id="7_m3g6l"]
-[ext_resource type="Script" path="res://Scripts/movimientoNubeVertical.gd" id="8_f3yhp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq3kw"]
 texture = ExtResource("5_q7w4l")
@@ -223,6 +222,20 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="GDScript" id="GDScript_ib5dh"]
+script/source = "extends Path2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [sub_resource type="GDScript" id="GDScript_m2ikd"]
 script/source = "extends PathFollow2D
 
@@ -274,95 +287,39 @@ _data = {
 "mover nube": SubResource("Animation_3hwa2")
 }
 
-[sub_resource type="Curve2D" id="Curve2D_xjmtw"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 670, 112, 0, 0, 0, 0, 670, -188)
-}
-point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bavp4"]
-size = Vector2(7, 71)
-
-[sub_resource type="Animation" id="Animation_a6alm"]
-resource_name = "moverNubeVertical"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_ci7bx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kf5qa"]
-_data = {
-"RESET": SubResource("Animation_ci7bx"),
-"moverNubeVertical": SubResource("Animation_a6alm")
-}
-
 [node name="Nivel" type="Node2D"]
 position = Vector2(-285, -512)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(1, 1)
-offset_left = -359.0
-offset_top = -1978.0
-offset_right = -319.0
-offset_bottom = -1938.0
-scale = Vector2(32.5399, 69.4875)
-color = Color(0, 0.688016, 0.68806, 1)
-
 [node name="MountainsA" type="Sprite2D" parent="."]
-position = Vector2(275, 40.7115)
-scale = Vector2(7.14266, 8.56701)
+position = Vector2(306, 435)
+scale = Vector2(4.63672, 1)
 texture = ExtResource("1_kwy5e")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-1, 0)
 tile_set = SubResource("TileSet_4es6s")
 format = 2
-layer_0/tile_data = PackedInt32Array(1310734, 458752, 3, 1310735, 524288, 3, 1310736, 589824, 3, 1310737, 655360, 3, 1310738, 720896, 3, 1310739, 786432, 3, 1310740, 851968, 3, 1245192, 720896, 1, 1245193, 786432, 1, 1245194, 851968, 1, 1179653, 851968, 1, 1179654, 786432, 1, 1179655, 851968, 1, 1179651, 851968, 1, 1179652, 786432, 1, 1179648, 851968, 1, 1179649, 720896, 1, 1179650, 786432, 1, 1245182, 720896, 1, 1245183, 786432, 1, 1310757, 786432, 1, 1310758, 786432, 1, 1310759, 786432, 1, 1310761, 786432, 1, 1310760, 786432, 1, 983056, 786432, 1, 983057, 786432, 1, 983058, 786432, 1, 786453, 786432, 1, 786454, 786432, 1, 786455, 786432, 1, 655373, 786432, 1, 655372, 786432, 1, 655371, 786432, 1, 655370, 786432, 1, -720863, 786432, 1, -720862, 851968, 1, -720894, 786432, 1, -720893, 786432, 1, -720892, 786432, 1, -720891, 786432, 1, -720890, 786432, 1, -720889, 786432, 1, -720888, 786432, 1, -720887, 786432, 1, -720886, 786432, 1, -720885, 786432, 1, -720884, 786432, 1, -720883, 786432, 1, -720882, 786432, 1, -720881, 786432, 1, -720880, 786432, 1, -720879, 786432, 1, -720878, 786432, 1, -720877, 786432, 1, -720876, 786432, 1, -720875, 786432, 1, -720874, 786432, 1, -720873, 786432, 1, -720872, 786432, 1, -720871, 786432, 1, -720864, 786432, 1, -720865, 786432, 1, -720866, 786432, 1, -720867, 786432, 1, -720868, 786432, 1, -720869, 786432, 1, -720870, 786432, 1, -1310717, 786432, 1, -1310716, 786432, 1, -1310715, 786432, 1, -1310711, 786432, 1, -1310710, 786432, 1, -1310709, 786432, 1, -1310708, 786432, 1, -1310718, 786432, 1, -1245183, 786432, 1, -1179647, 786432, 1, -1114111, 786432, 1, -1048575, 786432, 1, -983039, 786432, 1, -917503, 786432, 1, -851967, 786432, 1, -786431, 786432, 1, -720895, 786432, 1, -1310719, 786432, 1, -1310707, 786432, 1, -1310706, 327680, 3, -1310697, 65536, 3, -1310696, 786432, 1, -1310695, 786432, 1, -1310694, 786432, 1, -1310693, 786432, 1, -1310692, 786432, 1, -1310691, 786432, 1, -1310690, 786432, 1, -1310689, 786432, 1, -1310688, 786432, 1, -1376242, 327680, 3, -1441778, 327680, 3, -1507314, 327680, 3, -1441779, 786432, 1, -1441780, 786432, 1, -1376244, 786432, 1, -1376243, 786432, 1, -1507305, 65536, 3, -1441769, 65536, 3, -1376233, 65536, 3, -1507304, 786432, 1, -1441768, 786432, 1, -1376232, 786432, 1, -1376231, 786432, 1, -1441767, 786432, 1, -1376230, 786432, 1, -1769440, 786432, 1, -1769439, 786432, 1, -1769438, 786432, 1, -1769437, 786432, 1, -1769436, 786432, 1, -1769432, 786432, 1, -1769431, 786432, 1, -1769430, 786432, 1, -1769429, 786432, 1, -1769428, 786432, 1, -1572850, 327680, 3, -1638386, 327680, 2, -1638387, 786432, 1, -1572851, 786432, 1, -1507315, 786432, 1, -1507316, 786432, 1, -1376245, 786432, 1, -1441781, 786432, 1, -1638377, 65536, 2, -1572841, 65536, 3, -1572840, 786432, 1, -1638376, 786432, 1, -1507303, 786432, 1, -1507302, 786432, 1, -1441766, 786432, 1, -1376229, 786432, 1, -1376228, 786432, 1, -1769441, 786432, 1, -1769442, 786432, 1, -1769443, 786432, 1, -1769444, 786432, 1, -1834980, 327680, 3, -1900516, 327680, 3, -1966052, 327680, 3, -2031588, 327680, 3, -1769427, 786432, 1, -1769426, 786432, 1, -1769425, 786432, 1, -2031589, 786432, 1, -2031590, 786432, 1, -2031591, 786432, 1, -2031592, 786432, 1, -2031593, 786432, 1, -2031594, 786432, 1, -2031595, 786432, 1, -2031596, 786432, 1, -2031597, 786432, 1, -2031598, 786432, 1, -2031599, 786432, 1, -2031600, 786432, 1, -2031601, 786432, 1, -2031602, 786432, 1, -2031603, 786432, 1, -2031604, 786432, 1, -2031605, 786432, 1, -2031606, 786432, 1, -1834961, 327680, 3, -1900497, 327680, 3, -1966033, 327680, 3, -2031569, 327680, 3, -2097105, 327680, 3, -2162641, 327680, 3, -2228177, 327680, 3, -2293713, 327680, 3, -2359249, 327680, 3, -2424785, 327680, 3, -2490321, 327680, 3, -1703922, 327680, 3, -1703913, 65536, 3, -1245161, 65536, 3, -1179625, 65536, 3, -1114089, 65536, 3, -1245170, 327680, 3, -1179634, 327680, 3, -1114098, 327680, 3)
+layer_0/tile_data = PackedInt32Array(1310734, 458752, 3, 1310735, 524288, 3, 1310736, 589824, 3, 1310737, 655360, 3, 1310738, 720896, 3, 1310739, 786432, 3, 1310740, 851968, 3, 1245192, 720896, 1, 1245193, 786432, 1, 1245194, 851968, 1, 1179653, 851968, 1, 1179654, 786432, 1, 1179655, 851968, 1, 1179651, 851968, 1, 1179652, 786432, 1, 1179648, 851968, 1, 1179649, 720896, 1, 1179650, 786432, 1, 1245182, 720896, 1, 1245183, 786432, 1, 1310757, 786432, 1, 1310758, 786432, 1, 1310759, 786432, 1, 1310761, 786432, 1, 1310760, 786432, 1, 983056, 786432, 1, 983057, 786432, 1, 983058, 786432, 1, 786453, 786432, 1, 786454, 786432, 1, 786455, 786432, 1, 655373, 786432, 1, 655372, 786432, 1, 655371, 786432, 1, 655370, 786432, 1, 458793, 720896, 1, 458795, 720896, 1, 458796, 786432, 1, 458797, 851968, 1, 458794, 786432, 1)
 
 [node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(142, -213)
+position = Vector2(296, 66)
 safe_margin = 0.001
 script = ExtResource("1_koipq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 texture_filter = 2
-position = Vector2(1, -2.38419e-07)
+position = Vector2(-26.225, -1.22699)
 shape = SubResource("CapsuleShape2D_r284p")
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
 texture_filter = 1
-position = Vector2(1, -2.99999)
+position = Vector2(-26.225, -3.227)
 scale = Vector2(1.02038, 0.98781)
 texture = ExtResource("2_iih6w")
 hframes = 11
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(2, 2)
+zoom = Vector2(2.3, 2.3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
 libraries = {
@@ -387,6 +344,7 @@ texture = ExtResource("4_tx4pw")
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(207, 26)
 curve = SubResource("Curve2D_xwrpn")
+script = SubResource("GDScript_ib5dh")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(60, 85)
@@ -413,22 +371,23 @@ libraries = {
 speed_scale = 0.514
 
 [node name="Path2D2" type="Path2D" parent="."]
-curve = SubResource("Curve2D_xjmtw")
+position = Vector2(207, 26)
+curve = SubResource("Curve2D_xwrpn")
+script = SubResource("GDScript_ib5dh")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(670, 112)
-rotation = -1.5708
-script = ExtResource("8_f3yhp")
+position = Vector2(60, 85)
+rotation = 0.002849
+script = SubResource("GDScript_m2ikd")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Path2D2/PathFollow2D"]
+[node name="Area2D" type="CharacterBody2D" parent="Path2D2/PathFollow2D"]
+position = Vector2(0.999939, 0.0104065)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D2/PathFollow2D/CharacterBody2D"]
-position = Vector2(2.5, 0.5)
-shape = SubResource("RectangleShape2D_bavp4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D2/PathFollow2D/Area2D"]
+position = Vector2(1.50006, -3.01608)
+shape = SubResource("RectangleShape2D_o4037")
 
-[node name="Sprite2D" type="Sprite2D" parent="Path2D2/PathFollow2D/CharacterBody2D"]
-rotation = 1.5714
-scale = Vector2(1.16007, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Path2D2/PathFollow2D/Area2D"]
 texture = ExtResource("7_m3g6l")
 hframes = 2
 vframes = 4
@@ -436,8 +395,9 @@ frame = 6
 
 [node name="mover nube" type="AnimationPlayer" parent="Path2D2/PathFollow2D"]
 libraries = {
-"": SubResource("AnimationLibrary_kf5qa")
+"": SubResource("AnimationLibrary_bua81")
 }
+speed_scale = 0.514
 
 [connection signal="body_entered" from="deadzone" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="deadzone" to="deadzone" method="_on_body_entered"]

@@ -1,4 +1,5 @@
 res://scenes/nivel.tscn
-res://scenes/block.tscn
 res://Scripts/player_controller.gd
-res://Scripts/deathzone.gd
+res://Scripts/dashDoble.gd
+res://Scripts/test.gd
+res://Scripts/movimientoNubeVertical.gd
