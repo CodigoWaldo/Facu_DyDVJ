@@ -1,5 +1,2 @@
 res://scenes/nivel.tscn
 res://Scripts/player_controller.gd
-res://Scripts/dashDoble.gd
-res://Scripts/test.gd
-res://Scripts/movimientoNubeVertical.gd

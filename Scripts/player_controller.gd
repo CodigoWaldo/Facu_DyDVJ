@@ -15,7 +15,7 @@ var has_double_jumped = false;
 #//////////////////////////
 var dash_horizontal_distance = 200  
 var dash_vertical_distance = 200  
-var dash_duration = 0.5 
+var dash_duration = 0.3 
 var dash_timer = 0.0
 var is_dashing = false
 var dash_horizontal_velocity = 0.0
