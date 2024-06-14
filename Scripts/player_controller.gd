@@ -8,44 +8,80 @@ var gravity = 1100
 #//////////////////////////
 const SPEED = 250.0
 const JUMP_VELOCITY = -300.0
-var has_double_jumped = false;
-
+var has_double_jumped = false
+var isRunning = false
+var has_jumped = false
 #//////////////////////////
 # Variables para el dash
 #//////////////////////////
 var dash_horizontal_distance = 200  
 var dash_vertical_distance = 200  
-var dash_duration = 0.3 
+var dash_duration = 0.4 
 var dash_timer = 0.0
 var is_dashing = false
 var dash_horizontal_velocity = 0.0
 var dash_vertical_velocity = 0.0
 
+
+
 func _physics_process(delta):
+	#//////////////////////////
+	# debug reset PRESS R
+	#//////////////////////////
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
+	
+	
 	#//////////////////////////
 	# Animaciones
 	#//////////////////////////
-	$AnimationPlayer.play("idle") # Animación idle	
+
+		
+	
+	if isRunning == false and has_jumped == false :
+		$AnimationPlayer.play("idle") # Animación idle
+	else:
+		if isRunning == true and is_on_floor():		
+			$AnimationPlayer.play("run") # Animación correr
+		else:
+			$AnimationPlayer.play("jump") # Animación idle	   	
+	
+	if is_dashing:
+		$AnimationPlayer.play("Dash")
+	
+		
+		
+		
+		
+					
 	#//////////////////////////
 	# Movimiento y gravedad
 	#//////////////////////////
 	if not is_dashing:
-		if not is_on_floor():
+		if not is_on_floor(): #gravedad
 			velocity.y += gravity * delta
+			
 		if Input.is_action_just_pressed("saltar") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-		if is_on_floor():
-			has_double_jumped = false
+			has_jumped = true		
+				
 		if Input.is_action_just_pressed("saltar") and not is_on_floor() and not has_double_jumped:
 			has_double_jumped = true
+			has_jumped = true
 			velocity.y = JUMP_VELOCITY
-		
+			
+		if is_on_floor():
+			has_jumped = false
+			has_double_jumped = false
+			
 		# Dirección del personaje
 		var direction = Input.get_axis("mover_izquierda", "mover_derecha")
 		if direction:
+			isRunning = true
 			velocity.x = direction * SPEED
-			$Sprite2D.flip_h = direction < 0
+			$Sprite2D.flip_h = direction < 0				
 		else:
+			isRunning = false
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
 		perform_dash(delta)
@@ -56,11 +92,13 @@ func _physics_process(delta):
 	# Manejo del dash
 	#//////////////////////////
 	if Input.is_action_just_pressed("dash") and not is_dashing and is_on_floor():
+		
 		start_dash()
 
 #//////////////////////////
 func start_dash():
-	is_dashing = true
+	is_dashing = true	
+	
 	dash_timer = dash_duration	
 	if $Sprite2D.flip_h:
 		dash_horizontal_velocity = -dash_horizontal_distance / dash_duration

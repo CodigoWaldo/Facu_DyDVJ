@@ -1,13 +1,17 @@
 extends Area2D
 
 var initial_position = position.y
-var acceleration = 4.5  # a
+var acceleration = 0  # a
 var time_elapsed = 0  # t
 
 
+	
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var has_double_jumped = false;
+
+
+	
 func _physics_process(delta):
 	#formula de aceleracion y= y0 + vy0*t+ (1/2)*a*t^2
 	#y0: posicion inicial

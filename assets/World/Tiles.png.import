@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtf0m77mupmf4"
-path="res://.godot/imported/Run.png-6ffa73e91018cae5fa37a5ca02f43468.ctex"
+uid="uid://bopet4shukyvf"
+path="res://.godot/imported/Tiles.png-35c54605c3e54c07b01fe8e414179d85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Player/Run.png"
-dest_files=["res://.godot/imported/Run.png-6ffa73e91018cae5fa37a5ca02f43468.ctex"]
+source_file="res://assets/World/Tiles.png"
+dest_files=["res://.godot/imported/Tiles.png-35c54605c3e54c07b01fe8e414179d85.ctex"]
 
 [params]
 
