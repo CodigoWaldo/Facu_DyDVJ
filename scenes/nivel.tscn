@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b008bo5e827wt"]
+[gd_scene load_steps=42 format=3 uid="uid://b008bo5e827wt"]
 
 [ext_resource type="Script" path="res://Scripts/player_controller.gd" id="1_koipq"]
 [ext_resource type="Texture2D" uid="uid://145fqi728wdu" path="res://assets/Background/01 background.png" id="1_ljg83"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/movimientoNubeVertical.gd" id="8_f3yhp"]
 [ext_resource type="Script" path="res://deathZone2.gd" id="11_rsj0o"]
 [ext_resource type="PackedScene" uid="uid://djsovxj3j2jyv" path="res://scenes/minigame_spawer.tscn" id="14_sy7eq"]
+[ext_resource type="AudioStream" uid="uid://c0bnu0csk5bf1" path="res://sounds/AIM---A-Girl-And-Her-Droid.mp3" id="15_piy2b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq3kw"]
 texture = ExtResource("5_q7w4l")
@@ -4226,7 +4227,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
+tracks/0/path = NodePath(".:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -4243,14 +4244,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
+tracks/0/path = NodePath(".:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2, 4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 351.001, 0.0]
+"values": [0.0, 1.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bua81"]
@@ -4437,7 +4438,7 @@ region_rect = Rect2(64.1975, 192.079, 47.8953, 14.9757)
 libraries = {
 "": SubResource("AnimationLibrary_bua81")
 }
-speed_scale = 0.514
+speed_scale = 1.356
 
 [node name="nubeVertical" type="Path2D" parent="."]
 position = Vector2(-672, -410)
@@ -4497,5 +4498,10 @@ text = "THE END"
 [node name="MinigameSpawer" parent="." instance=ExtResource("14_sy7eq")]
 position = Vector2(-3, -65)
 
+[node name="background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_piy2b")
+autoplay = true
+
 [connection signal="body_entered" from="deadzone" to="player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="deadzone" to="deadzone" method="_on_body_entered"]
+[connection signal="body_entered" from="deadZone2" to="deadZone2" method="_on_body_entered"]

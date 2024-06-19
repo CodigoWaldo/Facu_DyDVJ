@@ -22,6 +22,7 @@ var is_dashing = false
 var dash_horizontal_velocity = 0.0
 var dash_vertical_velocity = 0.0
 
+var flip_offset = 8
 
 
 func _physics_process(delta):
@@ -77,19 +78,27 @@ func _physics_process(delta):
 		# Dirección del personaje
 		var direction = Input.get_axis("mover_izquierda", "mover_derecha")
 		if direction:
+			$Sprite2D.flip_h=false
+			$Sprite2D.position.x=+flip_offset
 			isRunning = true
 			velocity.x = direction * SPEED
-			$Sprite2D.flip_h = direction < 0				
+			 
+			if direction < 0:
+				$Sprite2D.flip_h =true
+				$Sprite2D.position.x=-flip_offset	
+			
+			
+							
 		else:
 			isRunning = false
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else:
 		perform_dash(delta)
 	
-	if $Sprite2D.flip_h: 
-		$Sprite2D.offset = Vector2(-16,0)
-	else:
-		$Sprite2D.offset = Vector2(0,0)
+	#if $Sprite2D.flip_h: 
+#		$Sprite2D.offset = Vector2(-16,0)
+#	else:
+#		$Sprite2D.offset = Vector2(0,0)
 	move_and_slide()
 	
 	#//////////////////////////
