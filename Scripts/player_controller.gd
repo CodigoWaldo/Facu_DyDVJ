@@ -86,6 +86,10 @@ func _physics_process(delta):
 	else:
 		perform_dash(delta)
 	
+	if $Sprite2D.flip_h: 
+		$Sprite2D.offset = Vector2(-16,0)
+	else:
+		$Sprite2D.offset = Vector2(0,0)
 	move_and_slide()
 	
 	#//////////////////////////
@@ -100,7 +104,7 @@ func start_dash():
 	is_dashing = true	
 	
 	dash_timer = dash_duration	
-	if $Sprite2D.flip_h:
+	if $Sprite2D.flip_h: 
 		dash_horizontal_velocity = -dash_horizontal_distance / dash_duration
 	else:
 		dash_horizontal_velocity = dash_horizontal_distance / dash_duration

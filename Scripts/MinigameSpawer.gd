@@ -6,6 +6,7 @@ extends Area2D
 
 var minigame_instance: Node = null
 var done : bool = false
+
 func _on_body_entered(body: Node):
 	if body == player:
 		spawn_minigame()
@@ -22,9 +23,16 @@ func immobilize_player():
 
 func _process(delta: float) -> void:
 	if minigame_instance == null or not is_instance_valid(minigame_instance):
+		return
+	if minigame_instance.dead:
+		minigame_instance.queue_free()
+		minigame_instance = minigame_scene.instantiate()
+		camera2d.add_child(minigame_instance)
+	elif minigame_instance.done:
+		minigame_instance.queue_free()
 		reactivate_player()
-		if done:
-			self.queue_free()
+		self.queue_free()
+	
 
 func reactivate_player():
 	player.set_physics_process(true)
