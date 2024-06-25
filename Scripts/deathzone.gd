@@ -1,17 +1,9 @@
 extends Area2D
 
 var initial_position = position.y
-var acceleration = 0  # a
+var acceleration = 2  # a
 var time_elapsed = 0  # t
 
-
-	
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-# var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var has_double_jumped = false;
-
-
-	
 func _physics_process(delta):
 	#formula de aceleracion y= y0 + vy0*t+ (1/2)*a*t^2
 	#y0: posicion inicial
@@ -19,15 +11,19 @@ func _physics_process(delta):
 	#a: aceleracion
 	#t: tiempo
 	# Actualizar el tiempo transcurrido
-	time_elapsed += delta
 	
-	# Calcular la nueva posición usando la fórmula
-	position.y = initial_position - 0.5 * acceleration * pow(time_elapsed, 2)
-
+	
+	# Calcular la nueva posición usando la fórmula	
+	if position.y > -1045 and Global.minijuego1Completado == true:
+		time_elapsed += delta
+		position.y = initial_position - 0.5 * acceleration * pow(time_elapsed, 2)
+		
+		
 func _on_body_entered(body):
 	if body.get_name()=="player":
+		print("moriste")
 		die()
 		
 		
-func die():
-	get_tree().reload_current_scene()
+func die():	
+	get_tree().change_scene_to_file("res://scenes/menu_loss.tscn")

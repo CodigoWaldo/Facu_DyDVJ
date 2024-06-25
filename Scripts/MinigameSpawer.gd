@@ -7,11 +7,31 @@ extends Area2D
 var minigame_instance: Node = null
 var done : bool = false
 
+var should_spawn_minigame = false
+
 func _on_body_entered(body: Node):
 	if body == player:
+		should_spawn_minigame = true
+
+func _process(delta):
+	if should_spawn_minigame and Input.is_action_just_pressed("accion"):
 		spawn_minigame()
 		immobilize_player()
-
+		should_spawn_minigame = false
+		
+	if minigame_instance == null or not is_instance_valid(minigame_instance):
+		return
+		
+	if minigame_instance.dead:
+		minigame_instance.queue_free()
+		minigame_instance = minigame_scene.instantiate()
+		camera2d.add_child(minigame_instance)
+	elif minigame_instance.done:
+		minigame_instance.queue_free()
+		reactivate_player()
+		self.queue_free()
+		
+		
 func spawn_minigame():
 	minigame_instance = minigame_scene.instantiate()
 	camera2d.add_child(minigame_instance)
@@ -21,19 +41,13 @@ func immobilize_player():
 	player.set_process(false)
 	done = true
 
-func _process(delta: float) -> void:
-	if minigame_instance == null or not is_instance_valid(minigame_instance):
-		return
-	if minigame_instance.dead:
-		minigame_instance.queue_free()
-		minigame_instance = minigame_scene.instantiate()
-		camera2d.add_child(minigame_instance)
-	elif minigame_instance.done:
-		minigame_instance.queue_free()
-		reactivate_player()
-		self.queue_free()
-	
-
 func reactivate_player():
 	player.set_physics_process(true)
 	player.set_process(true)
+	Global.minijuego1Completado = true
+	
+	
+
+	
+	
+

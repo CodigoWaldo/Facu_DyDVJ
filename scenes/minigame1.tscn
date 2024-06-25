@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cf8i05em72yc0"]
 
-[ext_resource type="Script" path="res://minigame1.gd" id="1_edr7l"]
+[ext_resource type="Script" path="res://Scripts/minigame1.gd" id="1_edr7l"]
 [ext_resource type="TileSet" uid="uid://bt1wkejhpe31" path="res://assets/tileset2.tres" id="2_gyaru"]
-[ext_resource type="Script" path="res://player_ball.gd" id="3_lsxex"]
+[ext_resource type="Script" path="res://Scripts/player_ball.gd" id="3_lsxex"]
 [ext_resource type="Script" path="res://scenes/Exit.gd" id="3_qtq17"]
 [ext_resource type="Texture2D" uid="uid://wmu43415s20l" path="res://assets/portal.png" id="4_bal38"]
 [ext_resource type="Texture2D" uid="uid://cdcnhmo3v7mr5" path="res://assets/icon.svg" id="4_o6rf8"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://donind0d7l7c2"]
+
+[ext_resource type="Script" path="res://Scripts/menuWin.gd" id="1_8p2yw"]
+[ext_resource type="Texture2D" uid="uid://oetyuag0weyb" path="res://assets/Ambient/Background_2.png" id="2_jmup7"]
+[ext_resource type="AudioStream" uid="uid://bb35153caww70" path="res://sounds/Win.mp3" id="3_trrk7"]
+
+[node name="menuwin" type="Node2D"]
+process_mode = 3
+position = Vector2(-288, -200)
+script = ExtResource("1_8p2yw")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(624, 376)
+scale = Vector2(2.69548, 2.7418)
+texture = ExtResource("2_jmup7")
+offset = Vector2(113.071, 68.2423)
+region_rect = Rect2(1280, 720, 0, 0)
+
+[node name="tiempo" type="Label" parent="."]
+offset_left = 666.0
+offset_top = 424.0
+offset_right = 1224.0
+offset_bottom = 493.0
+theme_override_font_sizes/font_size = 50
+text = "Te llevó 9999 segundos"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 808.0
+offset_top = 336.0
+offset_right = 1063.0
+offset_bottom = 405.0
+theme_override_font_sizes/font_size = 50
+text = "BIEN AHÍ !!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 676.0
+offset_top = 530.0
+offset_right = 923.0
+offset_bottom = 688.0
+scale = Vector2(2.16929, 2.19297)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="jugarDeNuevo" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Vamos de nuevo"
+
+[node name="menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Volver al menu"
+
+[node name="salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Ya fue"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_trrk7")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/jugarDeNuevo" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/jugarDeNuevo" to="." method="_on_jugar_de_nuevo_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]

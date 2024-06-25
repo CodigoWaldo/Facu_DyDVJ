@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs1dgtnrfxbft"]
+
+[ext_resource type="Script" path="res://menuLoss.gd" id="1_ak42u"]
+[ext_resource type="Texture2D" uid="uid://oetyuag0weyb" path="res://assets/Ambient/Background_2.png" id="2_2oi8m"]
+[ext_resource type="AudioStream" uid="uid://dtm2uv7vxjnst" path="res://sounds/loss.mp3" id="3_elfg6"]
+
+[node name="menuLoss" type="Node2D"]
+process_mode = 3
+position = Vector2(-288, -200)
+script = ExtResource("1_ak42u")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(624, 376)
+scale = Vector2(2.69548, 2.7418)
+texture = ExtResource("2_2oi8m")
+offset = Vector2(113.071, 68.2423)
+region_rect = Rect2(1280, 720, 0, 0)
+
+[node name="tiempo" type="Label" parent="."]
+offset_left = 712.0
+offset_top = 416.0
+offset_right = 1152.0
+offset_bottom = 485.0
+theme_override_font_sizes/font_size = 50
+text = "Tiempo tomado: 1"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 715.0
+offset_top = 289.0
+offset_right = 1146.0
+offset_bottom = 358.0
+theme_override_font_sizes/font_size = 50
+text = "Te caes a pedazos"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 741.0
+offset_top = 523.0
+offset_right = 912.0
+offset_bottom = 624.0
+scale = Vector2(2.16929, 2.19297)
+
+[node name="jugar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Esta vez será distinto"
+
+[node name="menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "menu"
+
+[node name="salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "me largo de aqui"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_elfg6")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]

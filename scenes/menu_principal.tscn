@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8jdefmoneupk"]
+
+[ext_resource type="Script" path="res://Scripts/menuPrincipal.gd" id="1_7k8dp"]
+[ext_resource type="Texture2D" uid="uid://oetyuag0weyb" path="res://assets/Ambient/Background_2.png" id="2_c738m"]
+[ext_resource type="AudioStream" uid="uid://jdtunp5610vj" path="res://sounds/main.mp3" id="3_k1458"]
+
+[node name="menuPrincipal" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_7k8dp")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(647, 353)
+scale = Vector2(2.84277, 2.84502)
+texture = ExtResource("2_c738m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 530.0
+offset_top = 143.0
+offset_right = 745.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 50
+text = "TITULO"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1087.0
+offset_top = 491.0
+offset_right = 1152.0
+offset_bottom = 568.0
+theme_override_font_sizes/font_size = 34
+text = "autores:
+WALDO
+FRANCO
+WALDIX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 385.0
+offset_top = 260.0
+offset_right = 899.0
+offset_bottom = 418.0
+
+[node name="jugar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "LETS GOO"
+
+[node name="salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quise abrir otra cosa"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k1458")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]
