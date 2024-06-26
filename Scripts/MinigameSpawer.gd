@@ -35,6 +35,7 @@ func _process(delta):
 func spawn_minigame():
 	minigame_instance = minigame_scene.instantiate()
 	camera2d.add_child(minigame_instance)
+	
 
 func immobilize_player():
 	player.set_physics_process(false)
