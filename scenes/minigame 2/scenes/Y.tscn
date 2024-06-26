@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://1h6b5elf8j2o"]
+
+[ext_resource type="Texture2D" uid="uid://d0fqqxqspbupm" path="res://assets/Letters/y letter.png" id="1_wtu5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5448t"]
+
+[node name="Y" type="RigidBody2D" groups=["pushable"]]
+position = Vector2(-3, 0)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_5448t")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.432693, 0.23628, 0.0230784, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-2.38419e-07, 2.38419e-07)
+scale = Vector2(0.0318396, 0.0300362)
+texture = ExtResource("1_wtu5b")

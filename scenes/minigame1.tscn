@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf8i05em72yc0"]
+[gd_scene load_steps=13 format=3 uid="uid://cf8i05em72yc0"]
 
 [ext_resource type="Script" path="res://Scripts/minigame1.gd" id="1_edr7l"]
 [ext_resource type="TileSet" uid="uid://bt1wkejhpe31" path="res://assets/tileset2.tres" id="2_gyaru"]
 [ext_resource type="Script" path="res://Scripts/player_ball.gd" id="3_lsxex"]
 [ext_resource type="Script" path="res://scenes/Exit.gd" id="3_qtq17"]
-[ext_resource type="Texture2D" uid="uid://wmu43415s20l" path="res://assets/portal.png" id="4_bal38"]
-[ext_resource type="Texture2D" uid="uid://cdcnhmo3v7mr5" path="res://assets/icon.svg" id="4_o6rf8"]
-[ext_resource type="PackedScene" uid="uid://2ylvh2vra5o1" path="res://scenes/minigame/spike.tscn" id="5_vqo7q"]
-[ext_resource type="PackedScene" uid="uid://6feupjks21s4" path="res://scenes/minigame/key.tscn" id="8_e2n3n"]
+[ext_resource type="Texture2D" uid="uid://wmu43415s20l" path="res://scenes/minigame 2/assets/portal.png" id="4_bal38"]
+[ext_resource type="Texture2D" uid="uid://cdcnhmo3v7mr5" path="res://scenes/minigame 2/assets/icon.svg" id="4_o6rf8"]
+[ext_resource type="PackedScene" uid="uid://2ylvh2vra5o1" path="res://scenes/minigame 2/scenes/spike.tscn" id="5_vqo7q"]
+[ext_resource type="PackedScene" uid="uid://6feupjks21s4" path="res://scenes/minigame 2/scenes/key.tscn" id="8_e2n3n"]
+[ext_resource type="Script" path="res://scenes/spike.gd" id="8_qqfx8"]
+[ext_resource type="Script" path="res://scenes/Key.gd" id="10_tkben"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4syd"]
 
@@ -64,34 +66,44 @@ zoom = Vector2(2.945, 2.945)
 
 [node name="Spike" parent="." instance=ExtResource("5_vqo7q")]
 position = Vector2(-54, 65)
+script = ExtResource("8_qqfx8")
 
 [node name="Spike2" parent="." instance=ExtResource("5_vqo7q")]
 position = Vector2(62, 66)
+script = ExtResource("8_qqfx8")
 
 [node name="Spike3" parent="." instance=ExtResource("5_vqo7q")]
 position = Vector2(61, -48)
+script = ExtResource("8_qqfx8")
 
 [node name="Spike4" parent="." instance=ExtResource("5_vqo7q")]
 position = Vector2(-55, -48)
+script = ExtResource("8_qqfx8")
 
 [node name="Llaves" type="Node2D" parent="."]
 
 [node name="Key" parent="Llaves" instance=ExtResource("8_e2n3n")]
 position = Vector2(-97, 6)
+script = ExtResource("10_tkben")
 
 [node name="Key2" parent="Llaves" instance=ExtResource("8_e2n3n")]
 position = Vector2(98, 4)
+script = ExtResource("10_tkben")
 
 [node name="Key3" parent="Llaves" instance=ExtResource("8_e2n3n")]
 position = Vector2(-81, -73)
+script = ExtResource("10_tkben")
 
 [node name="Key4" parent="Llaves" instance=ExtResource("8_e2n3n")]
 position = Vector2(87, -74)
+script = ExtResource("10_tkben")
 
 [node name="Key5" parent="Llaves" instance=ExtResource("8_e2n3n")]
 position = Vector2(87, 90)
+script = ExtResource("10_tkben")
 
 [node name="Key6" parent="Llaves" instance=ExtResource("8_e2n3n")]
 position = Vector2(-74, 91)
+script = ExtResource("10_tkben")
 
 [connection signal="body_entered" from="TileMap/Exit" to="." method="_on_exit_body_entered"]

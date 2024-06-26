@@ -1,0 +1,7 @@
+mover cajas/letras en un orden en especifico para abrir la puerta:
+
+Cuestiones a resolver:
+-Como mover objetos con el personaje
+-Como determinar si las letras estan en orden correcto
+
+

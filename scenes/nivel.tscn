@@ -1,25 +1,27 @@
-[gd_scene load_steps=48 format=3 uid="uid://b008bo5e827wt"]
+[gd_scene load_steps=50 format=3 uid="uid://b008bo5e827wt"]
 
 [ext_resource type="PackedScene" uid="uid://y3gjrq4q7n0f" path="res://scenes/HUD.tscn" id="1_i6tb7"]
 [ext_resource type="Script" path="res://Scripts/player_controller.gd" id="1_koipq"]
-[ext_resource type="Texture2D" uid="uid://145fqi728wdu" path="res://assets/Background/01 background.png" id="1_ljg83"]
-[ext_resource type="Texture2D" uid="uid://baut8wcrggdv" path="res://assets/Background/02 background.png" id="2_gtiip"]
-[ext_resource type="Texture2D" uid="uid://drivavfjbuuti" path="res://assets/Ambient/Background_1.png" id="2_top1v"]
-[ext_resource type="Texture2D" uid="uid://cglkmaswu3crm" path="res://assets/Rocky Roads/Tilesets/Tileset.png" id="3_br1e2"]
-[ext_resource type="Texture2D" uid="uid://beld326voktsh" path="res://assets/Background/03 background A.png" id="3_rqdn2"]
-[ext_resource type="Texture2D" uid="uid://cdpi28keke35l" path="res://assets/World/Assets.png" id="4_6oda7"]
-[ext_resource type="Texture2D" uid="uid://bh028f4t4ypip" path="res://assets/Rocky Roads/Tilesets/tileset_lava.png" id="5_q7w4l"]
-[ext_resource type="Texture2D" uid="uid://iuke43jxndo4" path="res://assets/Player/Sprite-sheet.png" id="5_v7llr"]
-[ext_resource type="Texture2D" uid="uid://xkvcltoho2vt" path="res://assets/World/Assets2.png" id="5_vf302"]
+[ext_resource type="Texture2D" uid="uid://145fqi728wdu" path="res://scenes/minigame 2/assets/Background/01 background.png" id="1_ljg83"]
+[ext_resource type="Texture2D" uid="uid://baut8wcrggdv" path="res://scenes/minigame 2/assets/Background/02 background.png" id="2_gtiip"]
+[ext_resource type="Texture2D" uid="uid://drivavfjbuuti" path="res://scenes/minigame 2/assets/Ambient/Background_1.png" id="2_top1v"]
+[ext_resource type="Texture2D" uid="uid://cglkmaswu3crm" path="res://scenes/minigame 2/assets/Rocky Roads/Tilesets/Tileset.png" id="3_br1e2"]
+[ext_resource type="Texture2D" uid="uid://beld326voktsh" path="res://scenes/minigame 2/assets/Background/03 background A.png" id="3_rqdn2"]
+[ext_resource type="Texture2D" uid="uid://cdpi28keke35l" path="res://scenes/minigame 2/assets/World/Assets.png" id="4_6oda7"]
+[ext_resource type="Texture2D" uid="uid://bh028f4t4ypip" path="res://scenes/minigame 2/assets/Rocky Roads/Tilesets/tileset_lava.png" id="5_q7w4l"]
+[ext_resource type="Texture2D" uid="uid://iuke43jxndo4" path="res://scenes/minigame 2/assets/Player/Sprite-sheet.png" id="5_v7llr"]
+[ext_resource type="Texture2D" uid="uid://xkvcltoho2vt" path="res://scenes/minigame 2/assets/World/Assets2.png" id="5_vf302"]
 [ext_resource type="Script" path="res://Scripts/deathzone.gd" id="6_a0jou"]
-[ext_resource type="Texture2D" uid="uid://cm6q1jo1vh7mr" path="res://assets/World/other_and_decorative.png" id="8_5rfc6"]
+[ext_resource type="Texture2D" uid="uid://cm6q1jo1vh7mr" path="res://scenes/minigame 2/assets/World/other_and_decorative.png" id="8_5rfc6"]
 [ext_resource type="Script" path="res://Scripts/movimientoNubeVertical.gd" id="8_f3yhp"]
 [ext_resource type="Script" path="res://Scripts/deathZone2.gd" id="11_rsj0o"]
 [ext_resource type="PackedScene" uid="uid://djsovxj3j2jyv" path="res://scenes/minigame_spawer.tscn" id="14_sy7eq"]
 [ext_resource type="PackedScene" uid="uid://cf8i05em72yc0" path="res://scenes/minigame1.tscn" id="17_m6w62"]
 [ext_resource type="AudioStream" uid="uid://bdx7mgt35hdtl" path="res://sounds/game1.mp3" id="18_3gtmy"]
 [ext_resource type="Script" path="res://areaWin.gd" id="18_vmlx8"]
-[ext_resource type="Texture2D" uid="uid://wmu43415s20l" path="res://assets/portal.png" id="19_q5c8k"]
+[ext_resource type="Texture2D" uid="uid://wmu43415s20l" path="res://scenes/minigame 2/assets/portal.png" id="19_q5c8k"]
+[ext_resource type="Script" path="res://Scripts/MinigameSpawer2.gd" id="20_qo75h"]
+[ext_resource type="PackedScene" uid="uid://c0toxmboan23q" path="res://scenes/minigame 2/scenes/minigame2.tscn" id="21_jhnn1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7xc4"]
 size = Vector2(2194, 21)
@@ -4439,6 +4441,15 @@ offset_right = 173.0
 offset_bottom = 1371.0
 color = Color(0.82, 0.246, 0, 1)
 
+[node name="MinigameSpawer" parent="." instance=ExtResource("14_sy7eq")]
+position = Vector2(-3, -65)
+minigame_scene = ExtResource("17_m6w62")
+
+[node name="MinigameSpawer2" parent="." instance=ExtResource("14_sy7eq")]
+position = Vector2(-84, -490)
+script = ExtResource("20_qo75h")
+minigame_scene = ExtResource("21_jhnn1")
+
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(-443, -18)
 safe_margin = 0.001
@@ -4530,10 +4541,6 @@ offset_bottom = -476.0
 scale = Vector2(0.509237, 0.52)
 text = "minijuego 2
 dash"
-
-[node name="MinigameSpawer" parent="." instance=ExtResource("14_sy7eq")]
-position = Vector2(-3, -65)
-minigame_scene = ExtResource("17_m6w62")
 
 [node name="background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_3gtmy")

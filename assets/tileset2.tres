@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bt1wkejhpe31"]
 
-[ext_resource type="Texture2D" uid="uid://bh028f4t4ypip" path="res://assets/Rocky Roads/Tilesets/tileset_lava.png" id="1_ggryt"]
-[ext_resource type="Texture2D" uid="uid://b20f46hsacq71" path="res://assets/Rocky Roads/Tilesets/tileset_water.png" id="2_1fi0s"]
-[ext_resource type="Texture2D" uid="uid://deobwuw68dl6d" path="res://assets/Rocky Roads/Tilesets/tileset_water-altered.png" id="3_cewtx"]
+[ext_resource type="Texture2D" uid="uid://bh028f4t4ypip" path="res://scenes/minigame 2/assets/Rocky Roads/Tilesets/tileset_lava.png" id="1_ggryt"]
+[ext_resource type="Texture2D" uid="uid://b20f46hsacq71" path="res://scenes/minigame 2/assets/Rocky Roads/Tilesets/tileset_water.png" id="2_1fi0s"]
+[ext_resource type="Texture2D" uid="uid://deobwuw68dl6d" path="res://scenes/minigame 2/assets/Rocky Roads/Tilesets/tileset_water-altered.png" id="3_cewtx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq3kw"]
 texture = ExtResource("1_ggryt")
