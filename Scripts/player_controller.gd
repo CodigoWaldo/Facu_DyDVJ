@@ -67,7 +67,7 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 			has_jumped = true		
 				
-		if Input.is_action_just_pressed("saltar") and not is_on_floor() and not has_double_jumped and Global.minijuego1Completado == true:
+		if Input.is_action_just_pressed("saltar") and not is_on_floor() and not has_double_jumped and Global.minijuego1Completado:
 			has_double_jumped = true
 			has_jumped = true
 			velocity.y = JUMP_VELOCITY
@@ -105,7 +105,7 @@ func _physics_process(delta):
 	#//////////////////////////
 	# Manejo del dash
 	#//////////////////////////
-	if Input.is_action_just_pressed("dash") and not is_dashing and is_on_floor():
+	if Input.is_action_just_pressed("dash") and not is_dashing and is_on_floor() and Global.minijuego2Completado:
 		
 		start_dash()
 

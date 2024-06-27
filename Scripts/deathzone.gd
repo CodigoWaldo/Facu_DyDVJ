@@ -1,7 +1,8 @@
 extends Area2D
 
 var initial_position = position.y
-var acceleration = 2  # a
+var acceleration = 0.5  # a
+var vy0=5
 var time_elapsed = 0  # t
 var is_stop=false
 
@@ -17,7 +18,7 @@ func _physics_process(delta):
 	# Calcular la nueva posición usando la fórmula	
 	if position.y > -1045 and Global.minijuego1Completado == true and not is_stop:
 		time_elapsed += delta
-		position.y = initial_position - 0.5 * acceleration * pow(time_elapsed, 2)
+		position.y = initial_position -vy0*time_elapsed - 0.5 * acceleration * pow(time_elapsed, 2)
 		
 		
 func _on_body_entered(body):
