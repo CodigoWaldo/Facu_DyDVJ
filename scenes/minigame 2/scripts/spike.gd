@@ -15,5 +15,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body == player:
-		#minigame_2.dead = true
-		get_tree().reload_current_scene()
+		minigame_2.dead = true
+		

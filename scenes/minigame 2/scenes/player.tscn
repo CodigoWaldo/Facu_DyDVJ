@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dfoxtjyvdy5va"]
 
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_is3f6"]
-[ext_resource type="Texture2D" uid="uid://iuke43jxndo4" path="res://assets/Player/Sprite-sheet.png" id="2_f0nnn"]
+[ext_resource type="Texture2D" uid="uid://iuke43jxndo4" path="res://scenes/minigame 2/assets/Player/Sprite-sheet.png" id="2_f0nnn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r284p"]
 radius = 7.0

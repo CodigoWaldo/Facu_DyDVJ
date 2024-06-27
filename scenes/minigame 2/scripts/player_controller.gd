@@ -13,7 +13,7 @@ func _physics_process(delta):
 	# Movimiento y gravedad
 	#//////////////////////////
 	
-	var direction= Input.get_vector("mover_izquierda", "mover_derecha", "mover_abajo", "mover_arriba")
+	var direction= Input.get_vector("mover_izquierda", "mover_derecha", "mover_arriba", "mover_abajo")
 	velocity=direction*SPEED
 	
 	if Input.is_action_pressed("mover_derecha"):
