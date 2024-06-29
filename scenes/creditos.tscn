@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwxen5fq0inx0"]
+
+[ext_resource type="Script" path="res://menuCredits.gd" id="1_rl1pa"]
+[ext_resource type="Texture2D" uid="uid://d1m0ub1h78bgy" path="res://assets/Background/vignette.png" id="1_w8q61"]
+
+[node name="Creditos" type="Node2D"]
+script = ExtResource("1_rl1pa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = -6.0
+offset_right = 1288.0
+offset_bottom = 726.0
+
+[node name="Vignette" type="Sprite2D" parent="."]
+position = Vector2(644, 360)
+scale = Vector2(2.27719, 2.74074)
+texture = ExtResource("1_w8q61")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 552.0
+offset_top = 174.0
+offset_right = 825.0
+offset_bottom = 459.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Developers
+Franco
+Waldo
+Walix"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1134.0
+offset_top = 674.0
+offset_right = 1349.0
+offset_bottom = 743.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "alpha 2"
+
+[node name="volver" type="Button" parent="."]
+offset_left = 389.0
+offset_top = 609.0
+offset_right = 903.0
+offset_bottom = 680.0
+theme_override_font_sizes/font_size = 45
+text = "Volver"
+
+[connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

@@ -1,20 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs1dgtnrfxbft"]
+[gd_scene load_steps=7 format=3 uid="uid://bs1dgtnrfxbft"]
 
 [ext_resource type="Script" path="res://menuLoss.gd" id="1_ak42u"]
-[ext_resource type="Texture2D" uid="uid://oetyuag0weyb" path="res://assets/Ambient/Background_2.png" id="2_2oi8m"]
-[ext_resource type="AudioStream" uid="uid://dtm2uv7vxjnst" path="res://sounds/loss.mp3" id="3_elfg6"]
+[ext_resource type="Texture2D" uid="uid://0dy6rejtyj0r" path="res://assets/Background/background1.png" id="2_efmw6"]
+[ext_resource type="AudioStream" uid="uid://bhitbc2v3f0dr" path="res://sounds/loss.wav" id="3_1ccer"]
+[ext_resource type="Texture2D" uid="uid://n4imrql8vbvu" path="res://assets/Background/background2.png" id="3_eint2"]
+[ext_resource type="Texture2D" uid="uid://cbb55dw0wa5hq" path="res://assets/Background/background3.png" id="4_8nwf5"]
+[ext_resource type="Texture2D" uid="uid://d1m0ub1h78bgy" path="res://assets/Background/vignette.png" id="6_gm1qu"]
 
 [node name="menuLoss" type="Node2D"]
 process_mode = 3
 position = Vector2(-288, -200)
 script = ExtResource("1_ak42u")
 
-[node name="Fondo" type="Sprite2D" parent="."]
-position = Vector2(624, 376)
-scale = Vector2(2.69548, 2.7418)
-texture = ExtResource("2_2oi8m")
-offset = Vector2(113.071, 68.2423)
-region_rect = Rect2(1280, 720, 0, 0)
+[node name="Fondo2" type="Sprite2D" parent="."]
+position = Vector2(936, 598)
+scale = Vector2(2.08906, 1.26875)
+texture = ExtResource("2_efmw6")
+
+[node name="Background2" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(937, 597)
+texture = ExtResource("3_eint2")
+region_enabled = true
+region_rect = Rect2(0, 0, 1362.59, 640)
+
+[node name="Background3" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(927, 651)
+texture = ExtResource("4_8nwf5")
+region_enabled = true
+region_rect = Rect2(0, 0, 1321.62, 640)
 
 [node name="tiempo" type="Label" parent="."]
 offset_left = 712.0
@@ -25,35 +40,42 @@ theme_override_font_sizes/font_size = 50
 text = "Tiempo tomado: 1"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 715.0
-offset_top = 289.0
-offset_right = 1146.0
-offset_bottom = 358.0
+offset_left = 784.0
+offset_top = 346.0
+offset_right = 1215.0
+offset_bottom = 415.0
 theme_override_font_sizes/font_size = 50
-text = "Te caes a pedazos"
+text = "Game over"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 741.0
-offset_top = 523.0
-offset_right = 912.0
-offset_bottom = 624.0
-scale = Vector2(2.16929, 2.19297)
+offset_left = 803.0
+offset_top = 540.0
+offset_right = 1044.0
+offset_bottom = 761.0
 
 [node name="jugar" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Esta vez será distinto"
+theme_override_font_sizes/font_size = 45
+text = "Reintentar"
 
 [node name="menu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "menu"
+theme_override_font_sizes/font_size = 45
+text = "Menu"
 
 [node name="salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "me largo de aqui"
+theme_override_font_sizes/font_size = 45
+text = "Salir"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_elfg6")
+stream = ExtResource("3_1ccer")
 autoplay = true
+
+[node name="Vignette" type="Sprite2D" parent="."]
+position = Vector2(927, 564)
+scale = Vector2(2.27719, 2.74074)
+texture = ExtResource("6_gm1qu")
 
 [connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]

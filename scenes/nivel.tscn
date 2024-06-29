@@ -1,27 +1,40 @@
-[gd_scene load_steps=50 format=3 uid="uid://b008bo5e827wt"]
+[gd_scene load_steps=66 format=3 uid="uid://b008bo5e827wt"]
 
+[ext_resource type="Texture2D" uid="uid://d20josqlvyepf" path="res://assets/Background/cloud8.png" id="1_6n2kt"]
 [ext_resource type="PackedScene" uid="uid://y3gjrq4q7n0f" path="res://scenes/HUD.tscn" id="1_i6tb7"]
 [ext_resource type="Script" path="res://Scripts/player_controller.gd" id="1_koipq"]
 [ext_resource type="Texture2D" uid="uid://145fqi728wdu" path="res://scenes/minigame 2/assets/Background/01 background.png" id="1_ljg83"]
+[ext_resource type="Texture2D" uid="uid://0dy6rejtyj0r" path="res://assets/Background/background1.png" id="2_05dc6"]
 [ext_resource type="Texture2D" uid="uid://baut8wcrggdv" path="res://scenes/minigame 2/assets/Background/02 background.png" id="2_gtiip"]
 [ext_resource type="Texture2D" uid="uid://drivavfjbuuti" path="res://scenes/minigame 2/assets/Ambient/Background_1.png" id="2_top1v"]
+[ext_resource type="Texture2D" uid="uid://dg4plcsyug2o3" path="res://assets/Background/cloud7.png" id="2_u4wjq"]
+[ext_resource type="Texture2D" uid="uid://n4imrql8vbvu" path="res://assets/Background/background2.png" id="3_4yfe2"]
+[ext_resource type="Texture2D" uid="uid://b86fu6qqena1s" path="res://assets/Background/cloud5.png" id="3_a84a3"]
 [ext_resource type="Texture2D" uid="uid://cglkmaswu3crm" path="res://scenes/minigame 2/assets/Rocky Roads/Tilesets/Tileset.png" id="3_br1e2"]
 [ext_resource type="Texture2D" uid="uid://beld326voktsh" path="res://scenes/minigame 2/assets/Background/03 background A.png" id="3_rqdn2"]
+[ext_resource type="Texture2D" uid="uid://dtp2d1pqumo8x" path="res://assets/Background/cloud2.png" id="4_5qduj"]
 [ext_resource type="Texture2D" uid="uid://cdpi28keke35l" path="res://scenes/minigame 2/assets/World/Assets.png" id="4_6oda7"]
+[ext_resource type="Texture2D" uid="uid://cbb55dw0wa5hq" path="res://assets/Background/background3.png" id="4_8ymdg"]
+[ext_resource type="Texture2D" uid="uid://dyfk070l8gw33" path="res://assets/Background/cloud1.png" id="5_l0nty"]
 [ext_resource type="Texture2D" uid="uid://bh028f4t4ypip" path="res://scenes/minigame 2/assets/Rocky Roads/Tilesets/tileset_lava.png" id="5_q7w4l"]
 [ext_resource type="Texture2D" uid="uid://iuke43jxndo4" path="res://scenes/minigame 2/assets/Player/Sprite-sheet.png" id="5_v7llr"]
 [ext_resource type="Texture2D" uid="uid://xkvcltoho2vt" path="res://scenes/minigame 2/assets/World/Assets2.png" id="5_vf302"]
 [ext_resource type="Script" path="res://Scripts/deathzone.gd" id="6_a0jou"]
+[ext_resource type="Texture2D" uid="uid://de8gur5b26yt8" path="res://assets/Background/cloud3.png" id="6_njco8"]
 [ext_resource type="Texture2D" uid="uid://cm6q1jo1vh7mr" path="res://scenes/minigame 2/assets/World/other_and_decorative.png" id="8_5rfc6"]
 [ext_resource type="Script" path="res://Scripts/movimientoNubeVertical.gd" id="8_f3yhp"]
 [ext_resource type="Script" path="res://Scripts/deathZone2.gd" id="11_rsj0o"]
 [ext_resource type="PackedScene" uid="uid://djsovxj3j2jyv" path="res://scenes/minigame_spawer.tscn" id="14_sy7eq"]
 [ext_resource type="PackedScene" uid="uid://cf8i05em72yc0" path="res://scenes/minigame1.tscn" id="17_m6w62"]
-[ext_resource type="AudioStream" uid="uid://bdx7mgt35hdtl" path="res://sounds/game1.mp3" id="18_3gtmy"]
 [ext_resource type="Script" path="res://areaWin.gd" id="18_vmlx8"]
 [ext_resource type="Texture2D" uid="uid://wmu43415s20l" path="res://scenes/minigame 2/assets/portal.png" id="19_q5c8k"]
 [ext_resource type="Script" path="res://Scripts/MinigameSpawer2.gd" id="20_qo75h"]
+[ext_resource type="Texture2D" uid="uid://d1m0ub1h78bgy" path="res://assets/Background/vignette.png" id="21_ggkmr"]
 [ext_resource type="PackedScene" uid="uid://c0toxmboan23q" path="res://scenes/minigame 2/scenes/minigame2.tscn" id="21_jhnn1"]
+[ext_resource type="AudioStream" uid="uid://bm3maoer0sfm4" path="res://sounds/Player/jump.wav" id="21_yf7oh"]
+[ext_resource type="AudioStream" uid="uid://bqgbmnvw8wpnj" path="res://sounds/midnight-forest-184304.mp3" id="23_bxw03"]
+[ext_resource type="Texture2D" uid="uid://ijqbpfshsed7" path="res://assets/World/lava.png" id="24_av0pg"]
+[ext_resource type="Script" path="res://lavaAnim.gd" id="25_keenn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7xc4"]
 size = Vector2(2194, 21)
@@ -4120,19 +4133,56 @@ sources/4 = SubResource("TileSetAtlasSource_q1opi")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gv16y"]
 size = Vector2(117.509, 102.769)
 
+[sub_resource type="Animation" id="Animation_t3vmr"]
+resource_name = "Lava"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_p0yyx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmm6n"]
+_data = {
+"Lava": SubResource("Animation_t3vmr"),
+"RESET": SubResource("Animation_p0yyx")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdusg"]
 size = Vector2(14, 31.5)
 
 [sub_resource type="Animation" id="Animation_ey86q"]
 resource_name = "Dash"
 length = 0.4
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
@@ -4321,11 +4371,15 @@ _data = {
 [node name="Nivel" type="Node2D"]
 position = Vector2(1205, -398)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("1_i6tb7")]
-
-[node name="Fondo" type="Node" parent="."]
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -1203.0
+offset_top = -1865.0
+offset_right = 1130.0
+offset_bottom = -363.0
+color = Color(0.407843, 0.709804, 0.87451, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 custom_minimum_size = Vector2(1, 1)
 offset_left = -1203.0
 offset_top = -1865.0
@@ -4334,7 +4388,94 @@ offset_bottom = -1822.0
 scale = Vector2(36.6031, 52.5887)
 color = Color(0.403922, 0.219608, 0.219608, 1)
 
+[node name="Cloud7" type="Sprite2D" parent="."]
+position = Vector2(-174, -1141)
+texture = ExtResource("2_u4wjq")
+
+[node name="Cloud5" type="Sprite2D" parent="."]
+position = Vector2(198, -697)
+texture = ExtResource("3_a84a3")
+
+[node name="Cloud9" type="Sprite2D" parent="."]
+position = Vector2(262, -989)
+texture = ExtResource("2_u4wjq")
+
+[node name="Cloud2" type="Sprite2D" parent="."]
+position = Vector2(-586, -1057)
+texture = ExtResource("4_5qduj")
+
+[node name="Cloud3" type="Sprite2D" parent="."]
+position = Vector2(507, -1174)
+texture = ExtResource("4_5qduj")
+
+[node name="Cloud4" type="Sprite2D" parent="."]
+position = Vector2(150, -1216)
+texture = ExtResource("6_njco8")
+
+[node name="Fondo2" type="Sprite2D" parent="."]
+position = Vector2(113, -250)
+scale = Vector2(2.08906, 1.175)
+texture = ExtResource("2_05dc6")
+region_enabled = true
+region_rect = Rect2(0, 0, 1600, 640)
+
+[node name="Background3" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(90, -256)
+texture = ExtResource("3_4yfe2")
+region_enabled = true
+region_rect = Rect2(-1863.03, 0, 3500, 640)
+
+[node name="Cloud1" type="Sprite2D" parent="."]
+position = Vector2(141, -382)
+texture = ExtResource("5_l0nty")
+
+[node name="Cloud8" type="Sprite2D" parent="."]
+position = Vector2(-189, -372)
+texture = ExtResource("1_6n2kt")
+
+[node name="Background4" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(90, -186)
+texture = ExtResource("4_8ymdg")
+region_enabled = true
+region_rect = Rect2(0, 0, 3500, 640)
+
+[node name="03BackgroundA" type="Sprite2D" parent="."]
+visible = false
+texture_repeat = 2
+position = Vector2(-27, -86)
+texture = ExtResource("3_rqdn2")
+region_enabled = true
+region_rect = Rect2(0, 0, 2491.25, 384)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -1136.0
+offset_top = 14.0
+offset_right = 1181.0
+offset_bottom = 336.0
+color = Color(0.466667, 0.439216, 0.435294, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+visible = false
+offset_left = -1207.0
+offset_top = 95.0
+offset_right = -1167.0
+offset_bottom = 135.0
+scale = Vector2(59.6274, 10.3677)
+color = Color(0.309804, 0.184314, 0.160784, 1)
+
+[node name="02Background" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-23, -6)
+texture = ExtResource("2_gtiip")
+region_enabled = true
+region_rect = Rect2(-1427.52, 154.025, 2371.54, 227.851)
+
 [node name="01Background" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(-34, -120)
@@ -4343,43 +4484,15 @@ region_enabled = true
 region_rect = Rect2(-1055.46, 0, 2381.03, 384)
 region_filter_clip_enabled = true
 
-[node name="Background1" type="Sprite2D" parent="01Background"]
+[node name="Background1" type="Sprite2D" parent="."]
+visible = false
 texture_repeat = 2
-position = Vector2(18, -907)
+position = Vector2(-16, -1027)
 texture = ExtResource("2_top1v")
 region_enabled = true
 region_rect = Rect2(-1091.82, 27.425, 2720.39, 244.575)
 
-[node name="Background2" type="Sprite2D" parent="01Background"]
-texture_repeat = 2
-position = Vector2(2, -673)
-scale = Vector2(1.042, -1)
-texture = ExtResource("2_top1v")
-region_enabled = true
-region_rect = Rect2(-1091.82, 27.425, 2720.39, 244.575)
-
-[node name="02Background" type="Sprite2D" parent="."]
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(-23, -6)
-texture = ExtResource("2_gtiip")
-region_enabled = true
-region_rect = Rect2(-1427.52, 154.025, 2371.54, 227.851)
-
-[node name="03BackgroundA" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(-27, -86)
-texture = ExtResource("3_rqdn2")
-region_enabled = true
-region_rect = Rect2(0, 0, 2491.25, 384)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = -1207.0
-offset_top = 95.0
-offset_right = -1167.0
-offset_bottom = 135.0
-scale = Vector2(59.6274, 10.3677)
-color = Color(0.309804, 0.184314, 0.160784, 1)
+[node name="CanvasLayer" parent="." instance=ExtResource("1_i6tb7")]
 
 [node name="LavaSecundaria" type="Area2D" parent="."]
 script = ExtResource("11_rsj0o")
@@ -4434,12 +4547,27 @@ position = Vector2(-56, 577)
 scale = Vector2(4.11458, 9.77917)
 shape = SubResource("RectangleShape2D_gv16y")
 
+[node name="Lava" type="Sprite2D" parent="LavaPrincipal"]
+texture_repeat = 2
+position = Vector2(-58.5, 83)
+scale = Vector2(1.00652, 1)
+texture = ExtResource("24_av0pg")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 1380, 30)
+script = ExtResource("25_keenn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LavaPrincipal/Lava"]
+libraries = {
+"": SubResource("AnimationLibrary_vmm6n")
+}
+
 [node name="ColorRect" type="ColorRect" parent="LavaPrincipal"]
 offset_left = -290.0
-offset_top = 78.0
+offset_top = 93.0
 offset_right = 173.0
-offset_bottom = 1371.0
-color = Color(0.82, 0.246, 0, 1)
+offset_bottom = 1381.0
+color = Color(0.94902, 0.290196, 0.00784314, 1)
 
 [node name="MinigameSpawer" parent="." instance=ExtResource("14_sy7eq")]
 position = Vector2(-3, -65)
@@ -4477,6 +4605,14 @@ vframes = 17
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(1, -55)
 zoom = Vector2(2.5, 2.5)
+
+[node name="Vignette" type="Sprite2D" parent="player"]
+position = Vector2(0.500034, -55)
+scale = Vector2(0.907018, 1.08889)
+texture = ExtResource("21_ggkmr")
+
+[node name="Salto" type="AudioStreamPlayer" parent="player"]
+stream = ExtResource("21_yf7oh")
 
 [node name="PlataformaMovil_1" type="Path2D" parent="."]
 position = Vector2(-229, -392)
@@ -4543,7 +4679,7 @@ text = "minijuego 2
 dash"
 
 [node name="background" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_3gtmy")
+stream = ExtResource("23_bxw03")
 autoplay = true
 
 [connection signal="body_entered" from="LavaSecundaria" to="LavaSecundaria" method="_on_body_entered"]

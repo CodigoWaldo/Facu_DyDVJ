@@ -18,3 +18,7 @@ func _on_salir_pressed():
 
 func _on_menu_pressed():
 	get_tree().change_scene_to_file("res://scenes/menu_principal.tscn")
+
+
+func _on_creditos_pressed():
+	get_tree().change_scene_to_file("res://scenes/creditos.tscn")
