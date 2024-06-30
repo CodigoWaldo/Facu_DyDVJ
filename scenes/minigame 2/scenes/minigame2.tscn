@@ -119,6 +119,7 @@ _data = {
 
 [node name="minigame2" type="Node2D"]
 z_index = 99
+scale = Vector2(0.9, 0.9)
 script = ExtResource("1_lgg6w")
 
 [node name="TileMap" type="TileMap" parent="."]

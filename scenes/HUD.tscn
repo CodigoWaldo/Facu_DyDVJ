@@ -16,12 +16,21 @@ autostart = true
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 296.0
-offset_bottom = 71.0
+offset_top = 51.0
+offset_right = 1024.0
+offset_bottom = 106.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "Tiempo: 99999"
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 58.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "Tiempo"
 horizontal_alignment = 1
 
 [connection signal="timeout" from="Control/Timer" to="Control" method="_on_timer_timeout"]

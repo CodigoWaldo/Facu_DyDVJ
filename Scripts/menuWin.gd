@@ -5,7 +5,8 @@ extends Node2D
 
 func _ready():
 	score_label.text = "Te llevó " + str(Global.tiempo) + " segundos."
-
+	Global.minijuego1Completado = false
+	Global.minijuego2Completado = false
 
 func _on_jugar_de_nuevo_pressed():
 	get_tree().change_scene_to_file("res://scenes/nivel.tscn")

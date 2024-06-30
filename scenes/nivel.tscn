@@ -33,11 +33,49 @@
 [ext_resource type="PackedScene" uid="uid://c0toxmboan23q" path="res://scenes/minigame 2/scenes/minigame2.tscn" id="21_jhnn1"]
 [ext_resource type="AudioStream" uid="uid://bm3maoer0sfm4" path="res://sounds/Player/jump.wav" id="21_yf7oh"]
 [ext_resource type="AudioStream" uid="uid://bqgbmnvw8wpnj" path="res://sounds/midnight-forest-184304.mp3" id="23_bxw03"]
-[ext_resource type="Texture2D" uid="uid://ijqbpfshsed7" path="res://assets/World/lava.png" id="24_av0pg"]
+[ext_resource type="Texture2D" uid="uid://ijqbpfshsed7" path="res://assets/World/lava.png" id="24_7ep2c"]
 [ext_resource type="Script" path="res://lavaAnim.gd" id="25_keenn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7xc4"]
 size = Vector2(2194, 21)
+
+[sub_resource type="Animation" id="Animation_t3vmr"]
+resource_name = "Lava"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_p0yyx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmm6n"]
+_data = {
+"Lava": SubResource("Animation_t3vmr"),
+"RESET": SubResource("Animation_p0yyx")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvl38"]
 size = Vector2(91, 82)
@@ -4133,44 +4171,6 @@ sources/4 = SubResource("TileSetAtlasSource_q1opi")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gv16y"]
 size = Vector2(117.509, 102.769)
 
-[sub_resource type="Animation" id="Animation_t3vmr"]
-resource_name = "Lava"
-length = 1.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_p0yyx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmm6n"]
-_data = {
-"Lava": SubResource("Animation_t3vmr"),
-"RESET": SubResource("Animation_p0yyx")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdusg"]
 size = Vector2(14, 31.5)
 
@@ -4506,7 +4506,7 @@ offset_left = -1028.0
 offset_top = 266.0
 offset_right = -415.0
 offset_bottom = 402.0
-color = Color(0.819608, 0.247059, 0, 1)
+color = Color(0.976471, 0.572549, 0.321569, 1)
 
 [node name="ColorRect" type="ColorRect" parent="LavaSecundaria"]
 offset_left = 244.0
@@ -4514,6 +4514,21 @@ offset_top = 278.0
 offset_right = 1182.0
 offset_bottom = 434.0
 color = Color(0.819608, 0.247059, 0, 1)
+
+[node name="Lava" type="Sprite2D" parent="LavaSecundaria"]
+texture_repeat = 2
+position = Vector2(-726, 247)
+scale = Vector2(1.00652, 1)
+texture = ExtResource("24_7ep2c")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 1680.51, 40.7318)
+script = ExtResource("25_keenn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LavaSecundaria/Lava"]
+libraries = {
+"": SubResource("AnimationLibrary_vmm6n")
+}
 
 [node name="EndGame" type="Area2D" parent="."]
 position = Vector2(18, -1031)
@@ -4549,12 +4564,12 @@ shape = SubResource("RectangleShape2D_gv16y")
 
 [node name="Lava" type="Sprite2D" parent="LavaPrincipal"]
 texture_repeat = 2
-position = Vector2(-58.5, 83)
-scale = Vector2(1.00652, 1)
-texture = ExtResource("24_av0pg")
+position = Vector2(-58.32, 77)
+scale = Vector2(0.996, 1.009)
+texture = ExtResource("24_7ep2c")
 hframes = 3
 region_enabled = true
-region_rect = Rect2(0, 0, 1380, 30)
+region_rect = Rect2(0, 0, 1394, 48)
 script = ExtResource("25_keenn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LavaPrincipal/Lava"]
@@ -4564,10 +4579,11 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="LavaPrincipal"]
 offset_left = -290.0
-offset_top = 93.0
+offset_top = 99.0
 offset_right = 173.0
-offset_bottom = 1381.0
-color = Color(0.94902, 0.290196, 0.00784314, 1)
+offset_bottom = 1387.0
+scale = Vector2(1, 1.027)
+color = Color(0.976471, 0.572549, 0.321569, 1)
 
 [node name="MinigameSpawer" parent="." instance=ExtResource("14_sy7eq")]
 position = Vector2(-3, -65)
@@ -4604,11 +4620,11 @@ vframes = 17
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(1, -55)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(3, 3)
 
 [node name="Vignette" type="Sprite2D" parent="player"]
-position = Vector2(0.500034, -55)
-scale = Vector2(0.907018, 1.08889)
+position = Vector2(1.50004, -55)
+scale = Vector2(0.612281, 0.977778)
 texture = ExtResource("21_ggkmr")
 
 [node name="Salto" type="AudioStreamPlayer" parent="player"]

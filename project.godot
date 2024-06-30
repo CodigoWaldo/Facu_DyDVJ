@@ -21,13 +21,17 @@ Global="*res://Scripts/Global.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1024
+window/size/viewport_height=768
 window/size/resizable=false
 
 [dotnet]
 
 project/assembly_name="DDVJ"
+
+[gui]
+
+theme/custom_font="res://Retro Gaming.ttf"
 
 [input]
 
@@ -79,3 +83,4 @@ mover_arriba={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+anti_aliasing/quality/msaa_2d=1
