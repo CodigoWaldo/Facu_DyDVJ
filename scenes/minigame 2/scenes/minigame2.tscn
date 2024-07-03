@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://1h6b5elf8j2o" path="res://scenes/minigame 2/scenes/Y.tscn" id="8_d62l7"]
 [ext_resource type="Script" path="res://scenes/minigame 2/scripts/player_controller.gd" id="9_7r5tu"]
 [ext_resource type="Script" path="res://scenes/minigame 2/scripts/spike movil.gd" id="12_t0wjg"]
-[ext_resource type="PackedScene" uid="uid://2ylvh2vra5o1" path="res://scenes/minigame 2/scenes/spike.tscn" id="13_a2428"]
+[ext_resource type="PackedScene" uid="uid://2ylvh2vra5o1" path="res://scenes/minigame/spike.tscn" id="13_a2428"]
 [ext_resource type="Script" path="res://scenes/minigame 2/scripts/spike.gd" id="15_gdrrf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwsmc"]

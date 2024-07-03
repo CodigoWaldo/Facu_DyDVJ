@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://2ylvh2vra5o1"]
+[gd_scene load_steps=6 format=3 uid="uid://2ylvh2vra5o1"]
 
 [ext_resource type="Script" path="res://scenes/spike.gd" id="1_5gd00"]
-[ext_resource type="Texture2D" uid="uid://d11okiwnqi3pd" path="res://assets/graphics/Spike.png" id="2_naiju"]
+[ext_resource type="Texture2D" uid="uid://d11okiwnqi3pd" path="res://scenes/minigame 2/assets/graphics/Spike.png" id="2_naiju"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oc7c2"]
 radius = 13.0384
+
+[sub_resource type="Gradient" id="Gradient_sseks"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_acbno"]
+gradient = SubResource("Gradient_sseks")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.866973, 0.197248)
 
 [node name="Spike" type="Area2D"]
 position = Vector2(1, -1)
@@ -18,5 +27,13 @@ texture = ExtResource("2_naiju")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_oc7c2")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.592157, 0.141176, 0.141176, 1)
+energy = 6.18
+range_z_min = 99
+range_z_max = 99
+texture = SubResource("GradientTexture2D_acbno")
+texture_scale = 1.47
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

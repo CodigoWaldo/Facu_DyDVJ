@@ -21,7 +21,7 @@
 [ext_resource type="Script" path="res://Scripts/movimientoNubeVertical.gd" id="8_f3yhp"]
 [ext_resource type="Script" path="res://Scripts/deathZone2.gd" id="11_rsj0o"]
 [ext_resource type="PackedScene" uid="uid://djsovxj3j2jyv" path="res://scenes/minigame_spawer.tscn" id="14_sy7eq"]
-[ext_resource type="PackedScene" uid="uid://cf8i05em72yc0" path="res://scenes/minigame1.tscn" id="17_m6w62"]
+[ext_resource type="PackedScene" uid="uid://cf8i05em72yc0" path="res://scenes/minigame/minigame1.tscn" id="17_m6w62"]
 [ext_resource type="Script" path="res://areaWin.gd" id="18_vmlx8"]
 [ext_resource type="Texture2D" uid="uid://wmu43415s20l" path="res://scenes/minigame 2/assets/portal.png" id="19_q5c8k"]
 [ext_resource type="Script" path="res://Scripts/MinigameSpawer2.gd" id="20_qo75h"]
