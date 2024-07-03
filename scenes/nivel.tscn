@@ -4677,15 +4677,6 @@ libraries = {
 "": SubResource("AnimationLibrary_kf5qa")
 }
 
-[node name="TextEdit2" type="TextEdit" parent="."]
-offset_left = -110.0
-offset_top = -511.0
-offset_right = -8.0
-offset_bottom = -476.0
-scale = Vector2(0.509237, 0.52)
-text = "minijuego 2
-dash"
-
 [node name="background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_bxw03")
 autoplay = true
