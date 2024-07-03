@@ -15,6 +15,20 @@ run/main_scene="res://scenes/nivel.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+<<<<<<< Updated upstream
+=======
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=768
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+>>>>>>> Stashed changes
 [dotnet]
 
 project/assembly_name="DDVJ"

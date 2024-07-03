@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://donind0d7l7c2"]
+
+[ext_resource type="Script" path="res://Scripts/menuWin.gd" id="1_8p2yw"]
+[ext_resource type="Texture2D" uid="uid://0dy6rejtyj0r" path="res://assets/Background/background1.png" id="2_r8t36"]
+[ext_resource type="Texture2D" uid="uid://n4imrql8vbvu" path="res://assets/Background/background2.png" id="3_ug3i5"]
+[ext_resource type="Texture2D" uid="uid://cbb55dw0wa5hq" path="res://assets/Background/background3.png" id="4_377qx"]
+[ext_resource type="AudioStream" uid="uid://bo6cu3qjnaedg" path="res://sounds/win.wav" id="5_5d1da"]
+[ext_resource type="Texture2D" uid="uid://d1m0ub1h78bgy" path="res://assets/Background/vignette.png" id="6_dcav8"]
+
+[node name="menuwin" type="Node2D"]
+process_mode = 3
+position = Vector2(-288, -200)
+script = ExtResource("1_8p2yw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 249.0
+offset_top = 165.0
+offset_right = 327.0
+offset_bottom = 427.0
+scale = Vector2(14.36, 1)
+color = Color(0.407843, 0.705882, 0.870588, 1)
+
+[node name="Fondo2" type="Sprite2D" parent="."]
+position = Vector2(810, 784)
+scale = Vector2(1.67109, 1.26875)
+texture = ExtResource("2_r8t36")
+
+[node name="Background2" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(810, 771)
+scale = Vector2(0.801762, 1)
+texture = ExtResource("3_ug3i5")
+region_enabled = true
+region_rect = Rect2(0, 0, 1362.59, 640)
+
+[node name="Background3" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(800, 777)
+scale = Vector2(0.807343, 1)
+texture = ExtResource("4_377qx")
+region_enabled = true
+region_rect = Rect2(0, 0, 1321.62, 640)
+
+[node name="Vignette" type="Sprite2D" parent="."]
+position = Vector2(795, 577)
+scale = Vector2(1.85263, 2.8963)
+texture = ExtResource("6_dcav8")
+
+[node name="tiempo" type="Label" parent="."]
+offset_left = 296.0
+offset_top = 390.0
+offset_right = 1307.0
+offset_bottom = 459.0
+theme_override_font_sizes/font_size = 50
+text = "Te llevó 9999 segundos"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 294.0
+offset_top = 308.0
+offset_right = 1309.0
+offset_bottom = 377.0
+theme_override_font_sizes/font_size = 50
+text = "Terminaste!"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 529.0
+offset_top = 514.0
+offset_right = 1095.0
+offset_bottom = 756.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="jugarDeNuevo" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Jugar de nuevo"
+
+[node name="menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Menu principal"
+
+[node name="salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Salir"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5d1da")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/jugarDeNuevo" to="." method="_on_jugar_de_nuevo_pressed"]
+[connection signal="pressed" from="VBoxContainer/jugarDeNuevo" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]
