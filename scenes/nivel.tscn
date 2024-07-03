@@ -1,27 +1,23 @@
-[gd_scene load_steps=66 format=3 uid="uid://b008bo5e827wt"]
+[gd_scene load_steps=62 format=3 uid="uid://b008bo5e827wt"]
 
 [ext_resource type="Texture2D" uid="uid://d20josqlvyepf" path="res://assets/Background/cloud8.png" id="1_6n2kt"]
 [ext_resource type="PackedScene" uid="uid://y3gjrq4q7n0f" path="res://scenes/HUD.tscn" id="1_i6tb7"]
 [ext_resource type="Script" path="res://Scripts/player_controller.gd" id="1_koipq"]
-[ext_resource type="Texture2D" uid="uid://145fqi728wdu" path="res://scenes/minigame 2/assets/Background/01 background.png" id="1_ljg83"]
 [ext_resource type="Texture2D" uid="uid://0dy6rejtyj0r" path="res://assets/Background/background1.png" id="2_05dc6"]
-[ext_resource type="Texture2D" uid="uid://baut8wcrggdv" path="res://scenes/minigame 2/assets/Background/02 background.png" id="2_gtiip"]
-[ext_resource type="Texture2D" uid="uid://drivavfjbuuti" path="res://scenes/minigame 2/assets/Ambient/Background_1.png" id="2_top1v"]
 [ext_resource type="Texture2D" uid="uid://dg4plcsyug2o3" path="res://assets/Background/cloud7.png" id="2_u4wjq"]
 [ext_resource type="Texture2D" uid="uid://n4imrql8vbvu" path="res://assets/Background/background2.png" id="3_4yfe2"]
 [ext_resource type="Texture2D" uid="uid://b86fu6qqena1s" path="res://assets/Background/cloud5.png" id="3_a84a3"]
 [ext_resource type="Texture2D" uid="uid://cglkmaswu3crm" path="res://scenes/minigame 2/assets/Rocky Roads/Tilesets/Tileset.png" id="3_br1e2"]
-[ext_resource type="Texture2D" uid="uid://beld326voktsh" path="res://scenes/minigame 2/assets/Background/03 background A.png" id="3_rqdn2"]
 [ext_resource type="Texture2D" uid="uid://dtp2d1pqumo8x" path="res://assets/Background/cloud2.png" id="4_5qduj"]
-[ext_resource type="Texture2D" uid="uid://cdpi28keke35l" path="res://scenes/minigame 2/assets/World/Assets.png" id="4_6oda7"]
+[ext_resource type="Texture2D" uid="uid://cdpi28keke35l" path="res://assets/World/Assets.png" id="4_6oda7"]
 [ext_resource type="Texture2D" uid="uid://cbb55dw0wa5hq" path="res://assets/Background/background3.png" id="4_8ymdg"]
 [ext_resource type="Texture2D" uid="uid://dyfk070l8gw33" path="res://assets/Background/cloud1.png" id="5_l0nty"]
 [ext_resource type="Texture2D" uid="uid://bh028f4t4ypip" path="res://scenes/minigame 2/assets/Rocky Roads/Tilesets/tileset_lava.png" id="5_q7w4l"]
 [ext_resource type="Texture2D" uid="uid://iuke43jxndo4" path="res://scenes/minigame 2/assets/Player/Sprite-sheet.png" id="5_v7llr"]
-[ext_resource type="Texture2D" uid="uid://xkvcltoho2vt" path="res://scenes/minigame 2/assets/World/Assets2.png" id="5_vf302"]
+[ext_resource type="Texture2D" uid="uid://xkvcltoho2vt" path="res://assets/World/Assets2.png" id="5_vf302"]
 [ext_resource type="Script" path="res://Scripts/deathzone.gd" id="6_a0jou"]
 [ext_resource type="Texture2D" uid="uid://de8gur5b26yt8" path="res://assets/Background/cloud3.png" id="6_njco8"]
-[ext_resource type="Texture2D" uid="uid://cm6q1jo1vh7mr" path="res://scenes/minigame 2/assets/World/other_and_decorative.png" id="8_5rfc6"]
+[ext_resource type="Texture2D" uid="uid://cm6q1jo1vh7mr" path="res://assets/World/other_and_decorative.png" id="8_5rfc6"]
 [ext_resource type="Script" path="res://Scripts/movimientoNubeVertical.gd" id="8_f3yhp"]
 [ext_resource type="Script" path="res://Scripts/deathZone2.gd" id="11_rsj0o"]
 [ext_resource type="PackedScene" uid="uid://djsovxj3j2jyv" path="res://scenes/minigame_spawer.tscn" id="14_sy7eq"]
@@ -4445,7 +4441,6 @@ region_rect = Rect2(0, 0, 3500, 640)
 visible = false
 texture_repeat = 2
 position = Vector2(-27, -86)
-texture = ExtResource("3_rqdn2")
 region_enabled = true
 region_rect = Rect2(0, 0, 2491.25, 384)
 
@@ -4470,7 +4465,6 @@ visible = false
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(-23, -6)
-texture = ExtResource("2_gtiip")
 region_enabled = true
 region_rect = Rect2(-1427.52, 154.025, 2371.54, 227.851)
 
@@ -4479,7 +4473,6 @@ visible = false
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(-34, -120)
-texture = ExtResource("1_ljg83")
 region_enabled = true
 region_rect = Rect2(-1055.46, 0, 2381.03, 384)
 region_filter_clip_enabled = true
@@ -4488,7 +4481,6 @@ region_filter_clip_enabled = true
 visible = false
 texture_repeat = 2
 position = Vector2(-16, -1027)
-texture = ExtResource("2_top1v")
 region_enabled = true
 region_rect = Rect2(-1091.82, 27.425, 2720.39, 244.575)
 
