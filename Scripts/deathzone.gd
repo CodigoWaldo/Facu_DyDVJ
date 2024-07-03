@@ -1,7 +1,7 @@
 extends Area2D
 
 var initial_position = position.y
-var acceleration = 3  # a
+var acceleration = 2  # a
 var vy0=5
 var time_elapsed = 0  # t
 var is_stop=false
