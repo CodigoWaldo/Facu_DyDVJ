@@ -1,4 +1,4 @@
-# Prototipo de juego
+# Prototipo de juego - Camisvania
 ES</br>
 Este es un prototipo del videojuego a desarrollar para la clase de diseño y desarrollo de videojuegos. </br>
 </br></br>
@@ -13,6 +13,6 @@ Integrantes:
 
 ```
 Engine: GODOT
-Language: 
+Language: Godot Script
 ```
 
